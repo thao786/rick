@@ -1,0 +1,31 @@
+comics:
+
+1. water treatment
+
+
+
+2. scada: oil rig -> encounter rock -> increase power supply to meet demand
+
+
+3. scada: control of pharmaceutical assembly line
+without scada system -> cant control temperature, pH leve, pressure -> making tons of garbage
+
+4. saving money wt government incentive program
+5. PLC: Remote Alarming
+
+
+
+
+
+6. PLC: pick up robot:  retrieve warehouse pick data from their Oracle database. Picks are initiated by scanning printed invoices with bar code scanners connected to the PLC controls. This scanned data is retrieved by our software and formatted into a SQL query for the customer database located in Atlanta, Georgia. Location and quantity data from the returned records is then relayed to the PLC controlled robotic pick system. Confirmation of the successful pick is then relayed back to the database.
+
+Barcode: -->  Order Id:  --> Select Location from Order where Order_ID = 2KG0B18SHO
+
+Location: Section B6, Rack 236
+Quantity: 2
+
+update Order set status=complete where Order_ID = 2KG0B18SHO
+
+
+
+
