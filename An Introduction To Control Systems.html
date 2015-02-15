@@ -1,0 +1,1331 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<!-- saved from url=(0072)http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+   <meta name="keywords" content="Control Systems, Introduction, Proportional Control, time response, simulation, feedback loop">
+   <meta name="description" content="Introduction to feedback control systems">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>An Introduction To Control Systems</title>
+<script language="JavaScript">
+	var RightAnswer, UserAnswer, Delta;
+	var Factor, Alpha = 500000, Rightness = 1;
+
+	function evaluateAnswer(form, RightAnswer){
+		UserAnswer = eval(form.InputValue.value);
+		Delta = (UserAnswer-RightAnswer)/RightAnswer;
+		Factor = Alpha * Delta * Delta * Delta * Delta * Delta * Delta;
+		Rightness = Math.floor((100*Rightness)/(1 + Factor));
+		form.Grade.value=Rightness;
+		Rightness = 1;
+	
+	}
+
+</script>
+</head>
+<body background="./An Introduction To Control Systems_files/Bkgrnd66.JPG">
+<b><font face="Comic Sans MS"><font color="#990000"><font size="+2">An
+Introduction To Control Systems</font></font></font></b><font color="#990000"></font>
+<p><font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#Introduction">Introduction</a></font></font>
+</p><blockquote><font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#Goals">Goals</a></font></font>
+<blockquote><font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#What">What
+You Will Need</a></font></font>
+<blockquote><font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#WhatIsAControlSystem">What
+Is A Control System?</a></font></font>
+<br><font face="Comic Sans MS"><font color="#990000"><font size="-1"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#Example1">Examples</a></font></font></font>
+<blockquote><font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro1.html#WhatIf">What
+If?</a></font></font>
+<blockquote><font face="Comic Sans MS"><font color="#990000">Simulators</font></font>
+<br><font face="Comic Sans MS"><font size="-1"><font color="#990000">&nbsp;&nbsp;&nbsp;
+</font><font color="#000099"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/InteractiveSimulators/Simulator1OrdClLoop.htm" target="blank">First
+Order</a></font></font></font>
+<br><font face="Comic Sans MS"><font color="#000099"><font size="-1">&nbsp;&nbsp;&nbsp;
+<a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/InteractiveSimulators/Simulator2OrdClLoop.htm" target="blank">Second
+Order</a></font></font></font></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<font face="Comic Sans MS"><font size="-2">You are at:&nbsp; Basic Concepts
+- Control System Introduction - Introduction to Control Systems</font></font>
+<br><font face="Comic Sans MS"><font size="-2"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Start.html">Click
+here to return to the Table of Contents
+<hr width="100%"></a><a name="Introduction"></a></font><font color="#006600"><font size="+1">Why
+Use Feedback Control?</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The first question is really "Why do you need a control system at all?"&nbsp;
+Consider the following.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">What good is an airplane
+if you are a pilot and you can't make it go where you want it to go?</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">What good is a chemical
+products production line if you can't control temperature, pressure and
+pH in the process and you end up making tons of garbage?</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">What good is an oven if
+you can't control the temperature?&nbsp; (And, does it matter if it's an
+oven in a kitchen or an oven in a heat-treating department that is used
+to harden metal parts?)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">What good is a pump if
+you can't control the flow rate it produces?&nbsp; (And, there are many
+times when the flow rate must be controlled.)</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+common denominator in all of these questions is that there is some physical
+quantity that must be somehow controlled in a way that ensures that the
+physical quantity takes on the value that is specified.&nbsp; There are
+even times when the physical quantity should take on some pre-determined
+values that follow a function of time.&nbsp; (An example of that would
+be landing an airplane where you want the plane to meet the ground following
+a specified curve.)&nbsp; We need to think about how to control physical
+quantities in general, and to determine what can be done - in a general
+way - to implement any schem we devise.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+What is clear is that if you want to control a system, you need to know
+what you want it to do, and you need to know how well it is doing.&nbsp;
+That implies a couple of things.&nbsp; First, you need to know what you
+want the system to do.&nbsp; There are lots of ways you can do that.&nbsp;
+For example, in your home you set a temperature by dialing it into the
+thermostat.&nbsp; That's the way you tell the system what you want it to
+do.&nbsp; When an airplane is landing there is a radar beacon at the far
+end of the runway that tells the aircraft if it is too high or too low,
+too far right or too far left, and how much in all those cases.&nbsp; There
+are any number of ways you can tell a system what you want it to do.&nbsp;
+You can turn a dial, type a number into a computer program, or you can
+use some other physical quantity.&nbsp; (An example of that is trying to
+point an antenna at a weather or communications satellite.&nbsp; The satellite's
+position - which might be predictable with an astronomical formula - gives
+the system the information it needs on where the antenna has to point.)&nbsp;
+One way or another, the control system has to know what it has to do.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The other thing that the control system has to know is how well the system
+is doing.&nbsp; That radar antenna at the end of the runway when the airplane
+is landing tells the airplane what to do, but it also tells the airplane
+where it is at (up/down and left/right) and how far off the desired position
+the aircraft is.&nbsp; The thermostat tells the system whether the temperature
+is above or below where it is desired to be.&nbsp; You can use temperature
+sensors, pressure sensors, tachometers and many other sensors that measure
+physical variables to get a handle on system performance.&nbsp; One way
+or the other, the system has to measure or monitor its performance.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Once you have the information on how well the system is performing, you
+have to do something with that information.&nbsp; The problem the control
+system designer faces is to determine how to use the information available
+to develop and apply a control signal that will make the system do what
+he or she wants it to do.&nbsp; At this point in these lessons that what
+you are just starting to learn.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+As you think about what you have to do to control a system, you realize
+that the information about how well a system is performing - usually taken
+at the <font color="#990000">output</font> of the system - has to be fed
+back around the system to the input and compared somehow with the input
+- the information about what you want the system to do - and that comparison
+gives you the information you need to produce/develp and apply a control
+signal.&nbsp; Feeding back that performance information is what gives us
+the idea of <font color="#990000">feedback</font> and feedback control
+systems.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Feedback control systems are very important.&nbsp; You've used them.&nbsp;
+Did you drive in this morning?&nbsp; Imagine you're going to drive to Toledo
+to see the Mudhens.&nbsp; You get in your car, and you use feedback.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">You didn't think about
+it, but you did look to see where you were on the road, and you used that
+information.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">If you didn't use that
+information, you were effectively driving blindfolded.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">We're not suggesting an
+experiment here.&nbsp; But if you did drive blindfolded you wouldn't get
+any feedback about where your car was on the road, and you wouldn't get
+where you want to go unless you want to have an accident.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In
+a feedback control system, information about performance is measured and
+that information is used to correct how the system performs.&nbsp; It's
+common.&nbsp; It's used in the human body over and over again to correct
+body temperature, the amount of light that hits your retina, and lots of
+things you never have to think about.&nbsp; But feedback systems don't
+exist only in the natural world.&nbsp; They're ubiquitous in the man-made
+world also.&nbsp; You'll find feedback control systems in chemical process
+plants, plants that package food, plants that make steel, in transportation
+vehicles to keep the vehicle on course at a desired speed.&nbsp; They're
+everywhere, and they don't always happen naturally, so you need to learn
+about how to design them.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The individuals who design control systems are a special group.&nbsp; You
+will often find electrical engineers who design control systems for aircraft
+of chemical plants.&nbsp; Designing control systems takes a person who
+can bring together various disparate aspects of a system and make them
+work together, and often that process is highly analytical and mathematical.&nbsp;
+You will need to learn how to use all the things you know about systems
+and bring them together to produce a good design.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In this lesson we'll start to examine feedback control systems and how
+you design them.&nbsp; First, we will look at your learning goals.</font>
+<br>
+</p><hr width="100%"><a name="Goals"></a><font face="Comic Sans MS"><font color="#006600"><font size="+1">Goals
+For This Lesson</font></font></font>
+<p><font face="Comic Sans MS">This lesson introduces you to control systems.&nbsp;
+Here's what you should get from this lesson.&nbsp; Look for it, and look
+for goals in every lesson so you can stay tuned in to what is important.</font>
+</p><blockquote><img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+Given a control system,</font></font>
+<blockquote><img src="./An Introduction To Control Systems_files/Bullet2.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#990000">&nbsp;&nbsp;&nbsp;
+Identify the system components and their function, including the comparator,
+controller, plant and sensor.</font></font></blockquote>
+<img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+Given a variable to be controlled,</font></font>
+<blockquote><img src="./An Introduction To Control Systems_files/Bullet2.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#990000">&nbsp;&nbsp;&nbsp;
+Determine the structure of a system that will control that variable.</font></font></blockquote>
+<img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+Given a control system design problem,</font></font>
+<blockquote><img src="./An Introduction To Control Systems_files/Bullet2.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#990000">&nbsp;&nbsp;&nbsp;
+To appreciate and understand that the complexity of most systemsm makes
+it difficult to predict their behavior.</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Along
+the way in this course you should also gain an appreciation of the idea
+that control systems are designed and the <font color="#003300">designers
+</font><font color="#990000">predict
+the behavior of some very complex systems</font>, and <font color="#990000">people
+trust those designers</font>.&nbsp; You trust them when ride in an airplane,
+astronauts trust them when they go to the moon or fly the space shuttle.&nbsp;
+A control system designer often has to consider the safety or even the
+lives of the people using the systems they design.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+It's not always easy to predict how a system will behave.&nbsp; Analysis
+tools are not perfect, and systems are not always completely understood.&nbsp;
+Despite that, if the systems are going to be used, you - if you are the
+control system designer - need to do the best job that you can to ensure
+that your system performs well.</font>
+</p><p>
+</p><hr width="100%"><font face="Comic Sans MS"><font color="#006600"><font size="+1">Some
+Examples</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+We want you to imagine that you have a job - actually several jobs.&nbsp;
+These jobs will involve designing control systems.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Imagine that you have
+been hired by a company that produces specialty metals.&nbsp; They are
+setting up a new production line for a new kind of magnetic material that
+they are producing for shielding rooms from magnetic fields produced by
+high currents.&nbsp; The production of this metal involves heating it to
+very specific temperatures and holding those temperatures for specified
+periods of time. Actually, the rates of temperature increase and decrease
+between the set points are also critical.&nbsp; If the temperatures vary
+too much from what is required the metal produced will have to be scrapped.&nbsp;
+Are you ready for this job?&nbsp; It's not tough conceptually, but can
+you guarantee the company that they can go forward with confidence that
+the temperature control systems will work to produce the required temperature
+vs time profile?</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;Here's another situation.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Imagine that are part
+of an aircraft control system design team.&nbsp; Your company has just
+bid on the control of a new supersonic aircraft.&nbsp; Your team will need
+to design the autopilot systems for the aircraft.&nbsp; In other words,
+you need to design systems that will keep the aircraft at the same altitude
+and on the same heading when the pilot is not actuating the controls.&nbsp;
+Can you design a system and guarantee that the system will work?&nbsp;
+Remember also that you need to design this system so that it works when
+the fuel tanks are full and when they are nearing empty at the end of a
+flight, and that the system has to work in all kinds of conditions including
+heavy cross winds.</font></font></li>
+</ul>
+
+<hr width="100%"><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+There are numerous other situations we could dream up.&nbsp; These situations
+could exist.&nbsp; They do exist.&nbsp; They're not really made up.&nbsp;
+There are many situations which involve a need for a design of a control
+system.&nbsp; What do you need to do to design a system?&nbsp; <font color="#003300">(More
+Goals)</font></font>
+<blockquote><img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+You need to understand the general schemes that can be used to control
+a system.</font></font>
+<p><img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+You will need to understand the system you're trying to control.</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+If you're an electrical engineer and you're in on the design of a</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+control system for a chemical plant or an aircraft, then you'll</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+need to use the material from some of those courses you</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+thought you'd never have to deal with again.</font></font>
+</p><p><img src="./An Introduction To Control Systems_files/Bullet1.gif" height="10" width="10"><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;
+You need to develop your ability to predict how a system</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+behaves, and that means that you will need to work on some</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mathematical techniques that involve differential equation</font></font>
+<br><font face="Comic Sans MS"><font color="#000066">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+solution.</font></font></p></blockquote>
+
+<hr width="100%"><a name="What"></a><font face="Comic Sans MS"><font color="#006600"><font size="+1">What
+You'll Need</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;Here are some of the topics you'll
+need along with some links to those topics.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">You need to understand
+the general schemes that can be used to control a system.&nbsp; That includes
+proportional control, integral control, and combinations of proportional
+and integral (plus derivative?) control.&nbsp; That's something you will
+get to soon enough.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">You will need to understand
+the system you're trying to control.&nbsp; If you're an electrical engineer
+and you're in on the design of a control system for a chemical plant or
+an aircraft, then you'll need to use the material from some of those courses
+you thought you'd never have to deal with again.&nbsp; (And, we hope that
+you did not sell back those books!)&nbsp; We discuss some of those issues
+in the lessons on modelling systems.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">You need to develop your
+ability to predict how a system behaves, and that means that you will need
+to work on some mathematical techniques that involve differential equation
+solution.</font></font></li>
+</ul>
+
+<hr width="100%"><a name="WhatIsAControlSystem"></a><font face="Comic Sans MS"><font color="#006600"><font size="+1">What
+Is A Control System?</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In most systems there will be an input and an output.&nbsp; This block
+diagram represents that.&nbsp; (Control system designers and engineers
+use block diagrams to represent systems.&nbsp; Get used to them.)&nbsp;
+Signals flow from the input, through the system and produce an output.</font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1BlkDiagA.gif" height="103" width="382"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The input will usually
+be an ideal form of the output.&nbsp; In other words the input is really
+what we want the output to be.&nbsp; It's the desired output.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The output of the system
+has to be measured.&nbsp; In the figure below, we show the </font><font color="#000066">system
+we are trying to control - the "plant" - </font><font color="#990000">and
+a </font><font color="#000066">sensor</font><font color="#990000"> that
+measures what the controlled system is doing.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The input to the plant
+is usually called the </font><font color="#000066">control effort</font><font color="#990000">,
+and the output of the sensor is usually called the </font><font color="#000066">measured
+output</font><font color="#990000">, as shown below in the figure.</font></font></li>
+</ul>
+
+<blockquote>
+<center><img src="./An Introduction To Control Systems_files/Intro1BlkDiagB.gif" height="124" width="381"></center>
+</blockquote>
+<font face="Comic Sans MS">For example, if we want the output to be 100<b><sup>o</sup></b>C,
+then that's the input.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+If we want to control the output, we first need to measure the output.&nbsp;
+Within the whole system is the system we want to control - the plant -&nbsp;
+along with a <font color="#990000">sensor</font> that measures what the
+output actually is.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In our block diagram representation,
+we show the output signal being fed to the sensor which produces another
+signal that is dependent upon the output.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">A sensor might be an LM35,
+which produces a voltage proportional to temperature - if the output signal
+is a temperature.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+We need the sensor in the system to measure what the system is doing.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The sensor measures the
+output of the system we are controlling.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">It often converts the
+output into a variable we can use.&nbsp; If the output is a temperature,
+we might want to have a </font><font color="#000066">voltage</font><font color="#990000">
+we can use to control a heater, for example.&nbsp; The LM35 temperature
+sensor, for example, produce .01 volts for every 1.0<b><sup>o</sup></b>C
+change.</font></font></li>
+</ul>
+<font face="Comic Sans MS"><font color="#000000">To control the system
+we need to use the information provided by the sensor.</font></font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Usually, the output, as
+measured by the sensor is subtracted from the input (which is the desired
+output) as shown below. That forms an </font><font color="#000066">error
+signal</font><font color="#990000"> that the controller can use to control
+the plant.</font></font></li>
+</ul>
+
+<center>
+<p><br><img src="./An Introduction To Control Systems_files/Intro1BlkDiagC.gif" height="126" width="380"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The device which performs
+the subtraction to compute the error, E, is a </font><font color="#000066">comparator</font><font color="#990000">.</font></font></li>
+</ul>
+<font face="Comic Sans MS"><font color="#000000">Finally, the last part
+of this system is the controller.</font></font>
+<center>
+<p><img src="./An Introduction To Control Systems_files/Intro1BlkDiagD.gif" height="126" width="380"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The </font><font color="#000066">controller</font><font color="#990000">
+acts on the error signal and uses that information to produce the signal
+that actually affects the system we are trying to control.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The controller has to
+provide enough power to drive the system.&nbsp; You don't want to try to
+control a large motor with a 741 operational amplifier.&nbsp; You just
+can't do that, so the controller has to be able to compute the control
+signal, and it has to be able to drive the system you are trying to control.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Thus, the controller has
+two things that it has to achieve.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The controller has to
+</font><font color="#000066">compute</font><font color="#990000">
+what the control errort should be.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The controller has to
+</font><font color="#000066">apply</font><font color="#990000">
+the computed control effort.</font></font></li>
+</ul>
+</ul>
+<font face="Comic Sans MS"><font color="#000000">Consider how this controller
+works.</font></font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">If the gain in the forward
+path, from the error to the output, is large, then a</font><font color="#000066">
+small error can produce a much larger ouput</font><font color="#990000">.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">There is a certain logic
+to that strategy.&nbsp; You want a small error, but you need a control
+effort large enough to control the system.&nbsp; That seems to imply that
+the gain of the controller should be large.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">It looks like a good strategy
+would be for the controller to be a high gain power amplifier (for many
+control situations) because then a small error could produce the output
+we want, or something very close to what we want - because the error would
+be small.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;Now, let's start to refine our model.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Let's assume that the
+system we are trying to control is a </font><font color="#000066">linear
+system</font><font color="#990000">.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">To account for the linear
+dynamics, we'll show the </font><font color="#000066">transfer function</font><font color="#990000">
+of the system.&nbsp; That transfer function will be </font><font color="#000066">G(s)</font><font color="#990000">.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Once
+we realize that we can describe the system we are controlling, the plant,
+we realize that we can describe all of the components in the sytem with
+a transfer function description.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The sensor most likely
+has an output - typically a voltage - that is proportional to the physical
+variable it measures.&nbsp; That means that the transfer function is just
+a constant - a gain.&nbsp; We'll denote that by </font><font color="#000066">K<b><sub>s</sub></b></font><font color="#990000">.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+last item in our system is the controller.&nbsp; Controllers come in many
+varieties.&nbsp; The simplest - but certainly not the only one used - is
+a <font color="#990000">proportional controller</font>.&nbsp; That's what
+we will consider here, but remember there are also integral controllers,
+and controllers that blend integral, proportional and derivative control
+and lots of others.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In a proportional controller,
+the control action is proportional to the error, and we can represent the
+controller as a gain, </font><font color="#000066">K<b><sub>p</sub></b></font><font color="#990000">.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; That
+completes a verbal and algebraic description of the system, but there is
+also a diagrammatic representation for the system.&nbsp; The block diagram
+shown below captures all of the information about the system as we have
+developed it above.&nbsp; Note, in this system, we are assuming that all
+of the signals are Laplace transform versions of the time signals we have
+been discussing, and the descriptions of the blocks in the block diagram
+are really transfer functions.</font>
+<center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A2GenericBlkDiag.gif" height="115" width="305"></p></center>
+
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+With this block diagram, let's review what we hope happens in this system.</font>
+</p><ol>
+<li>
+<font face="Comic Sans MS"><font color="#990000">There is an input, u(t),
+to the system, which we assume starts from rest.&nbsp; In the block diagram,
+that is represented by U(s).</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The output of the system,
+Y(s), is measured with a sensor that has a transfer function K<b><sub>s</sub></b>.&nbsp;
+That transfer function could have a time constant, etc., but for now we
+will examine it as though it is a constant.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">There is an error, E(s),
+developed, particularly because the controlled system, G(s), cannot respond
+immediately and the feedback signal that is subtracted from the input to
+form the error is zero.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The error that is developed
+acts through the proportional controller, K<b><sub>p</sub></b>,&nbsp; to
+start to move the output of the system to where we want it to be.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the system continues
+to operate, the output of the system (described by G(s)) rises, reducing
+the error so that the control effort from the proportional controller gets
+smaller.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Even though the error
+gets smaller, if the gain of the proportional controller is large it will
+still provide enough output to drive the system close to where we want
+it to be.</font></font></li>
+</ol>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+kind of system is referred to as a <font color="#990000">closed loop system</font>,
+since there is a feedback signal that "closes the loop" in the system.&nbsp;
+That's a little jargon you need to learn and remember.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+But we're not done yet.&nbsp; We need to take our description and use it
+to determine how this system behaves.&nbsp; That's the next section.&nbsp;
+There we will look at a simple system and apply our analytical abilities
+in order to get a better idea of how it all works.&nbsp; But first, we
+are going to look at a few simulations of systems using the kind of system
+described above.</font>
+<br>
+</p><hr width="100%"><a name="Example1"></a><font face="Comic Sans MS"><font color="#990000">Example/Experiment</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">E1</font><font color="#000099">&nbsp;&nbsp;&nbsp;
+By <a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/InteractiveSimulators/Simulator1OrdClLoop.htm" target="blank">clicking
+here</a>, you can get to a simulator for the system below.&nbsp; When you
+click, you will get instructions for operating the simulator, as well as
+a link to the simulator which eventually opens in a separate window.&nbsp;
+You can return to this window, and keep the simulator window open.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, we assume
+that G(s) is a first order system.</font></font></li>
+
+<ul>
+<li>
+<font color="#990000"><font face="Comic Sans MS">G(s) = G<b><sub>dc</sub></b>/(s</font><b><font face="Symbol">t</font></b><font face="Comic Sans MS">
++ 1)</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, the
+following items can be set.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000099">G<b><sub>dc</sub></b>
+- The DC gain for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">t - </font></b><font face="Comic Sans MS">The
+time constant for G(s)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">K - The proportional gain
+in the controller</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">The Desired output, u,
+which corresponds to U(s) in the diagram above.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The system preloads with
+a gain of 5 for the controller, with a gain of 2 in the system being controlled.&nbsp;
+Run the simulator with the preloaded gains and parameter values and note
+how quickly the system responds, and how accurately it responds.&nbsp;
+Accuracy is determined by examining the steady state error (SSE).&nbsp;
+The SSE is the difference between the desired output (preloaded as 2.0)
+and the actual output (which will be displayed as the system runs).</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Now, double the gain -
+from 5 to 10 - by entering a new value in the gain text box, and run the
+simulation again (You will have to clear the previous plot to do that.)
+and observe the final value again.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Compare the results and
+determine if the claims above about getting a small error with a large
+gain are true.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Does the system perform
+more accurately with the higher gain?</font></font></li>
+</ul>
+
+<center><form method="POST"><input type="button" value=" Yes " onclick="alert(&#39;Right!&#39;);"><img src="./An Introduction To Control Systems_files/Bkgrnd66Spacer.jpg" height="7" width="76"><input type="button" value=" No " onclick="alert(&#39;No! The system settles out at 1.818 for the lower gain and 1.905 at the higher gain and you are trying to get to 2.  Which is closer?&#39;);"></form>
+<br>
+<hr width="100%"></center>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now
+you should have seen that the system performs better with a higher gain.&nbsp;
+It is more accurate, and - if you didn't notice - it is also faster for
+the higher gain.&nbsp; It's tempting to conclude that you always want higher
+gain because you will get better performance.&nbsp; We will check that
+on a second order system later.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+First, we need to point out another thing that happens in a closed loop
+system.&nbsp; Let's get back to our original system and examine another
+detail in the system's performance.&nbsp; What we will look at is how the
+error changes in time.&nbsp; There are some things we can learn from that.
+</font></p><hr width="100%"><font face="Comic Sans MS"><font color="#990000">Example/Experiment</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">E2</font><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In this system we will examine how the error changes in time.&nbsp; First,
+we have the same block diagram for the system.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, we assume
+that G(s) is a first order system.</font></font></li>
+
+<ul>
+<li>
+<font color="#990000"><font face="Comic Sans MS">G(s) = G<b><sub>dc</sub></b>/(s</font><b><font face="Symbol">t</font></b><font face="Comic Sans MS">
++ 1)</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, the
+following items can be set.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000099">G<b><sub>dc</sub></b>
+- The DC gain for G(s)</font></font></li>
+
+<li>
+<b><font color="#000099"><font face="Symbol">t</font><font face="Comic Sans MS">
+- </font></font></b><font face="Comic Sans MS"><font color="#000099">The
+time constant for G(s)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">K - The proportional gain
+in the controller</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">The Desired output, u,
+which corresponds to U(s) in the diagram above.</font></font></li>
+</ul>
+</ul>
+<font face="Comic Sans MS"><font color="#000099">Now, the simulator below
+also shows how the error changes as the system operates.</font></font>
+<center>
+<p><!-- URL's used in the movie--><!-- text used in the movie--><!--5 10 15 20 -5 -10 -15 -20 Copyright 2003 E. J. Mastascusa First Order System Simulator Input Time  Constant CONTROLLED  SYSTEM Input DC Gain CONTROLLER Input K Desired Output OUTPUT BEING  PLOTTED -> 25 30 35 40 45 50 2.5 3.0 3.5 4.0 2.0 1.5 1.0 Start Clear --><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="350"><param name="movie" value="PlotSim1OrdCL2SimPlts.swf"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><embed src="PlotSim1OrdCL2SimPlts.swf" quality="high" bgcolor="#FFFFFF" width="450" height="350" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></object></p></center>
+
+<p><font face="Comic Sans MS"><font color="#000099">Run the simulator.&nbsp;
+(Note that the green plot is the plot of the error in this simulation.)&nbsp;
+You should notice the following.</font></font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the system runs, the
+error is initially very large.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">When the error is large
+the control effort in the system is large.&nbsp; That means that there
+is a larger input that is driving the system that is being controlled,
+probably causing it to respond quickly.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the system runs, the
+error gets smaller - although it never gets to zero.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the error gets smaller,
+the control effort becomes smaller.&nbsp; When you get close to the desired
+output, you don't need to "push" the system toward the desired output,
+and you only need a control effort large enough to keep the system at a
+constant value.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Run the system again (Reset
+the system first.) with a larger gain, K<b><sub>p</sub></b>.&nbsp; At larger
+gains a smaller error produces the same control effort, and it takes a
+smaller error to produce enough control effort to keep the system at the
+desired output level.&nbsp; The net result is a smaller steady state error.</font></font></li>
+</ul>
+
+<hr width="100%"><font face="Comic Sans MS"><font color="#990000">Example/Experiment</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">E3</font><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In this simulator, the system is the one shown in the block diagram below.&nbsp;
+It's the same configuration that we had before.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, we assume
+that G(s) is a second order system.</font></font></li>
+
+<ul>
+<li>
+<font color="#990000"><font face="Comic Sans MS">G(s) = G<b><sub>dc</sub></b>/(s<b><sup>2</sup></b>
++ 2</font><b><font face="Symbol">zw</font><sub><font face="Comic Sans MS">n</font></sub><font face="Symbol">
++ w</font><font face="Comic Sans MS"><sub>n</sub><sup>2</sup></font></b><font face="Comic Sans MS">)</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, the
+following items can be set.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000099">G<b><sub>dc</sub></b>
+- The DC gain for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">z - </font></b><font face="Comic Sans MS">The
+damping ratio for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">w</font><sub><font face="Comic Sans MS">n</font></sub><font face="Symbol">
+- </font></b><font face="Comic Sans MS">The undamped natural frequency
+for G(s)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">K - The proportional gain
+in the controller</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">The Desired output, u.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">To operate the simulator,</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">You can start by just
+using the values that are pre-loaded into the simulator.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Click the </font><font color="#000099">Start</font><font color="#990000">
+button.&nbsp; A plot will be generated.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">If you want to change
+anything, enter the new data, then click the </font><font color="#000099">Reset</font><font color="#990000">
+button which appears when the plot is complete.&nbsp; That clears the plot
+and brings back the start button.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The output is indicated
+as the simulation runs.</font></font></li>
+</ul>
+</ul>
+
+<center><!-- URL's used in the movie--><!-- text used in the movie--><!--5 10 15 20 -5 -10 -15 -20 Copyright 2003 E. J. Mastascusa Second Order  System Simulator Input Natural  Frequency Input Damping  Ratio  CONTROLLED  SYSTEM Input DC Gain CONTROLLER Input K Desired Output OUTPUT BEING  PLOTTED -> 25 30 35 40 45 50 2.5 3.0 3.5 4.0 2.0 1.5 1.0 Start Clear --><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="350"><param name="movie" value="PlotSim2OrdClosedLoop.swf"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><embed src="PlotSim2OrdClosedLoop.swf" quality="high" bgcolor="#FFFFFF" width="450" height="350" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></object></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Now, double the gain -
+from 5 to 10 - by entering a new value in the gain text box, and run the
+simulation again (You will have to clear the previous plot to do that.)
+and observe the final value again.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Compare the results and
+determine if the claims above about getting a small error with a large
+gain are true.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Does the system perform
+more accurately with the higher gain?</font></font></li>
+</ul>
+
+<center><form method="POST"><input type="button" value=" Yes " onclick="alert(&#39;Right!&#39;);"><img src="./An Introduction To Control Systems_files/Bkgrnd66Spacer.jpg" height="7" width="76"><input type="button" value=" No " onclick="alert(&#39;No! The system settles out at 1.818 for the lower gain and 1.905 at the higher gain and you are trying to get to 2.  Which is closer?&#39;);"></form></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Does the system perform
+better with the higher gain?</font></font></li>
+</ul>
+
+<center><form method="POST"><input type="button" value=" Yes " onclick="alert(&#39;That\&#39;s not clear.  It\&#39;s more accurate, but it has larger oscillations.&#39;);"><img src="./An Introduction To Control Systems_files/Bkgrnd66Spacer.jpg" height="7" width="76"><input type="button" value=" No " onclick="alert(&#39;That\&#39;s not clear.  It\&#39;s more accurate, but it has larger oscillations.&#39;);"></form>
+<br>
+<hr width="100%"></center>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+second system points out an interesting conundrum.&nbsp; The system gets
+better one way, but it deteriorates in another way.&nbsp; Go back and try
+to increase the gain still further and notice what happens.&nbsp; You can
+do that in the simulator below, which has been modified to show the error
+as well as the output.
+<hr width="100%"><font color="#990000">Example/Experiment</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">E4</font><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In this simulator, the system is the one shown in the block diagram below.&nbsp;
+It is the same configuration that we had before.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, we assume
+that G(s) is a second order system.</font></font></li>
+
+<ul>
+<li>
+<font color="#990000"><font face="Comic Sans MS">G(s) = G<b><sub>dc</sub></b>/(s<b><sup>2</sup></b>
++ 2</font><b><font face="Symbol">zw</font><sub><font face="Comic Sans MS">n</font></sub><font face="Symbol">
++ w</font><font face="Comic Sans MS"><sub>n</sub><sup>2</sup></font></b><font face="Comic Sans MS">)</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, the
+following items can be set.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000099">G<b><sub>dc</sub></b>
+- The DC gain for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">z - </font></b><font face="Comic Sans MS">The
+damping ratio for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">w</font><sub><font face="Comic Sans MS">n</font></sub><font face="Symbol">
+- </font></b><font face="Comic Sans MS">The undamped natural frequency
+for G(s)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">K - The proportional gain
+in the controller</font></font></li>
+
+<br><font face="Comic Sans MS"><font color="#000099">The Desired output,
+u.</font></font></ul>
+</ul>
+
+<center><!-- URL's used in the movie--><!-- text used in the movie--><!--5 10 15 20 -5 -10 -15 -20 Copyright 2003 E. J. Mastascusa First Order System Simulator Input Natural  Frequency Input Damping  Ratio  CONTROLLED  SYSTEM Input DC Gain CONTROLLER Input K Desired Output OUTPUT BEING  PLOTTED -> 25 30 35 40 45 50 2.5 3.0 3.5 4.0 2.0 1.5 1.0 Start Clear --><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="350"><param name="movie" value="PlotSim2OrdCL2SimPlts.swf"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><embed src="PlotSim2OrdCL2SimPlts.swf" quality="high" bgcolor="#FFFFFF" width="450" height="350" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></object></center>
+
+<p><font face="Comic Sans MS"><font color="#000099">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+In this simulator you can adjust the proportional gain.</font></font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Run the simulator with
+the gain as shown.&nbsp; You should note that there is a time when the
+error becomes almost exactly zero, yet the system continues to run and
+settles out at a non-zero error.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Run the simulator with
+a proportional gain (K<b><sub>p</sub></b>) of 10.&nbsp; (The simulator
+should pre-load with a proportional gain of 5.0.)&nbsp; Now, notice that
+the error actually becomes negative.</font></font></li>
+</ul>
+
+<hr width="100%"><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+There is another interesting point to observe here.&nbsp; The system that
+is pre-loaded is a system with a damping ratio of 2, which means that the
+system has two real poles.&nbsp; Real poles can't produce oscillations.&nbsp;
+Oscillations can only come from complex poles.&nbsp; With a little experimentation
+you should be able to see that the system does not exhibit oscillations
+- so it has real poles - at low gain values, and that you only get oscillations
+at larger gain values.&nbsp; Try it now.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+You should also observe that the error behaves in some interesting ways.&nbsp;
+With a proportional gain of 10.0, the system can exhibit a transient negative
+error, which implies that the control effort - which is proportional to
+the error - becomes negative.&nbsp; If this is a temperature control system,
+that would mean turning the heater off and running an air-conditioning
+unit to take heat out of the controlled space.&nbsp; If you are trying
+to control the level of liquid in a tank, the negative control effort means
+you are trying to remove liquid from the tank - running a pump backwards.&nbsp;
+In both of these cases the linear model we have assumed might not really
+be a good representation for the system that you actually build.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+At this point things are starting to get interesting.&nbsp; You should
+realize that predicting how a system behaves is not going to be simple,
+and that we will need to be able to develop tools that can help us predict
+behavior, especially in more complex systems.&nbsp; We haven't used the
+most complex systems.&nbsp; Even a simple model of an airplane might have
+twenty or more poles.&nbsp; But, the tools that we will develop have been
+used successfully to design systems that large and much larger.&nbsp; We
+need to consider what we have to do and we will start by looking at the
+block diagram representation of our system.&nbsp;&nbsp; We are working
+toward an explanation of what is happening, particularly what happens in
+the simulated systems for starters.</font>
+</p><p>
+</p><hr width="100%"><a name="ClosedLoopTransferFunction"></a><font face="Comic Sans MS"><font color="#003300"><font size="+1">Getting
+the Closed Loop Transfer Function</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+block diagram we have developed shows how the signals within the system
+interact.&nbsp; Actually, we can think of the <font color="#990000">block
+diagram as a way of representing algebraic relationships that exist within
+the system</font><font color="#000000">.&nbsp; Each item in the block diagram
+represents some algebraic relationship that exists in the system.&nbsp;
+We can use those relationships to get a relationship between the input
+and output signals.&nbsp; Let's look at a simple system.&nbsp; In this
+system, the sensor has a transfer function of 1.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<p><font face="Comic Sans MS"><font color="#000000">&nbsp;The output of
+the system is related to the error signal.</font></font>
+</p><blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">y(t)
+</font><font color="#000066">=
+Output</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">Y(s) </font><font color="#000066">=
+</font><font color="#990000">G(s)*W(s)</font></font></p></blockquote>
+</blockquote>
+<font face="Comic Sans MS">That is the algebraic relationship that exists
+between the input to the system we are controlling - denoted by W(s) in
+the diagram - and the output of the system, Y(s).&nbsp; The essence of
+that relationship is the transfer function, G(s), which might describe
+some very complicated dynamics in that system.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+There is another block, the controller, which is assumed here to be just
+a gain, K.&nbsp; The relationship that block sets up is:</font>
+</p><blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">W(s)
+</font><font color="#000066">=
+</font><font color="#990000">K*E(s)</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Continuing
+along this avenue, we can substitute for the error.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The error signal, E, is
+the difference between the input and the sensor signal.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000066">u(t) = Input</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000066">E(s) = U(s) - Y(s)</font></font></li>
+</ul>
+</ul>
+<font face="Comic Sans MS">&nbsp;Finally, we can note that this equation
+lets us compute the relationship between input and output.</font>
+<blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">E(s)
+</font><font color="#000066">=
+</font><font color="#990000">U(s)
+- Y(s)</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">and, we can get a relationship between E(s)
+and the system output, Y(s) by combining the first two relationships we
+have.</font>
+<blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">W(s)
+</font><font color="#000066">=
+</font><font color="#990000">K*E(s)</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">Y(s) </font><font color="#000066">=
+</font><font color="#990000">G(s)*W(s)
+= G(s)*K*E(s)</font></font></p></blockquote>
+</blockquote>
+<font face="Comic Sans MS"><font color="#000000">so, we have:</font></font>
+<blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">E(s)
+</font><font color="#000066">=
+</font><font color="#990000">Y(s)/[K*G(s)]
+</font><font color="#000066">=
+</font><font color="#990000">U(s)
+- Y(s)</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS"><font color="#000000">solve for the output to
+obtain</font></font>
+<blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">Y(s)
+</font><font color="#000066">=
+</font><font color="#990000">U(s)
+* K * G(s)/[1 + K*G(s)]</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+ratio of output to input for the closed loop system is referred to as the
+<font color="#000066">Closed
+Loop Transfer Function (CLTF)</font>.&nbsp; There are very few things in
+control systems that you should memorize, but you should remember the form
+for the closed loop transfer function.&nbsp; This is what you have to remember.</font>
+<center>
+<p><font face="Comic Sans MS"><font color="#000066">Closed Loop Transfer
+Function = </font><font color="#990000">KG(s)/[1 + KG(s)]</font></font></p></center>
+
+<p>
+</p><hr width="100%"><a name="FirstOrderExample"></a><font face="Comic Sans MS"><font color="#006600"><font size="+1">A
+First Order System Example</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Now, let's examine a particular case where G(s) is a first order system.&nbsp;
+In that case we would have:</font>
+</p><blockquote>
+<blockquote><font face="Comic Sans MS"><font color="#990000">G(s) = G<b><sub>dc</sub></b>/(s<font size="+1">t</font>
++ 1)</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">Then, the closed loop transfer function - Y(s)/U(s),
+given above - can be computed in detail:</font>
+<blockquote>
+<blockquote><font color="#990000"><font face="Comic Sans MS">G<b><sub>CL</sub></b>(s)
+= KG<b><sub>dc</sub></b>/(s</font><b><font face="Symbol"><font size="+1">t</font></font></b><font face="Comic Sans MS">
++ 1 + KG<b><sub>dc</sub></b>) = G<b><sub>dc,CL</sub></b>/[s</font><b><font face="Symbol"><font size="+1">t</font></font><font face="Comic Sans MS"><sub>CL</sub></font></b><font face="Comic Sans MS">
++ 1]</font></font></blockquote>
+</blockquote>
+<font face="Comic Sans MS">This expression is put into a standard form
+at the right.&nbsp; That expression has two parameters, the closed loop
+DC Gain, <font color="#990000">G<b><sub>dc,CL</sub></b></font>, and the
+closed loop time constant, </font><b><font color="#990000"><font face="Symbol"><font size="+1">t</font></font><font face="Comic Sans MS"><sub>CL</sub></font></font></b><font face="Comic Sans MS">.&nbsp;
+Those parameters are given by:</font>
+<blockquote><font face="Comic Sans MS"><font color="#990000">G<b><sub>dc,CL</sub></b>=&nbsp;
+KG<b><sub>dc</sub></b>/(1 + KG<b><sub>dc</sub></b>)</font></font>
+<p><font color="#990000"><b><font face="Symbol"><font size="+1">t</font></font><font face="Comic Sans MS"><sub>CL</sub></font></b><font face="Comic Sans MS">
+=</font><font size="+1"><b><font face="Symbol">t</font></b><font face="Comic Sans MS">/</font></font><font face="Comic Sans MS">(1
++ KG<b><sub>dc</sub></b>)</font></font></p></blockquote>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is
+a particularly interesting result.&nbsp; The closed loop system does not
+have the same parameters as the original system.&nbsp; <font color="#990000">Both
+the time constant and the DC gain have changed</font> as a result of having
+the feedback loop in the system.
+<hr width="100%"><font color="#990000">Question</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">Q1</font><font color="#000099">.&nbsp;
+In the proportional control system described above, you want to be sure
+that the output matches the input as well as possible.&nbsp; Ideally, the
+closed loop DC gain would be 1.0.&nbsp; If </font><font color="#990000">G<b><sub>dc</sub></b>
+= 1</font><font color="#000099">, and you determine that the system is
+not accurate enough.&nbsp; Would you need to increase </font><font color="#990000">K</font><font color="#000099">
+or would you need to decrease K?</font></font>
+</p><center>
+<p></p><form method="POST"><input type="button" value="Increase" onclick="alert(&#39;Right!&#39;);"><img src="./An Introduction To Control Systems_files/Bkgrnd66Spacer.jpg" height="7" width="76"><input type="button" value="Decrease" onclick="alert(&#39;No! Decreasing the gain will make the closed loop gain smaller.&#39;);"></form></center>
+
+<p>
+</p><hr width="100%">
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Something interesting happens here, but before we look at that, let's introduce
+a little terminology.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The </font><font color="#000066">Open
+Loop DC Gain</font><font color="#990000"> for this system is the product
+of the DC gain of the controller - </font><font color="#000066">K</font><font color="#990000">
+- and the DC gain of the system being controlled - </font><font color="#000066">G<b><sub>dc</sub></b></font><font color="#990000">.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now,
+we can note the following for the closed loop system.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the Open Loop DC gain
+changes, the Closed Loop DC gain also changes - but it approaches 1.0 as
+the gain gets large.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">As the Open Loop DC gain
+changes, the Closed Loop Time Constant also changes.&nbsp; It just gets
+smaller and smaller as the gain gets large.</font></font></li>
+</ul>
+<font face="Comic Sans MS">There are some interesting implications of these
+changes.</font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">What this means is that
+the steady state output gets closer and closer to the value of the input
+when the input is a contstant.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">It also means is that
+the steady state is reached faster in the closed loop system.</font></font></li>
+</ul>
+<font face="Comic Sans MS">Here is the first order simulator again.&nbsp;
+Here you can check the predictions we have just made.&nbsp; Follow the
+instructions below.</font>
+<br>
+<hr width="100%"><font face="Comic Sans MS"><font color="#990000">Example/Experiment/Problem</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">E5</font><font color="#000099">&nbsp;&nbsp;&nbsp;
+In this simulator, the system is the one shown in the block diagram below.&nbsp;
+To simplify things we have used a sensor with a gain of 1, and shown the
+feedback path as a gain of one.</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1A1GenericBlkDiag.gif" height="77" width="305"></p></center>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, we assume
+that G(s) is a first order system.</font></font></li>
+
+<ul>
+<li>
+<font color="#990000"><font face="Comic Sans MS">G(s) = G<b><sub>dc</sub></b>/(s</font><b><font face="Symbol">t</font></b><font face="Comic Sans MS">
++ 1)</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">In the simulator, the
+following items can be set.</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#000099">G<b><sub>dc</sub></b>
+- The DC gain for G(s)</font></font></li>
+
+<li>
+<font color="#000099"><b><font face="Symbol">t - </font></b><font face="Comic Sans MS">The
+time constant for G(s)</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">K - The proportional gain
+in the controller</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000099">The Desired output, u,
+which corresponds to U(s) in the diagram above.</font></font></li>
+</ul>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">To operate the simulator,</font></font></li>
+
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Set the time constant
+to 20 seconds.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Set the DC gain of the
+plant - the controlled system - to 1.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Set the controller gain
+to 1.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">Predict the closed loop
+time constant, so that you are sure of what you expect.&nbsp; Use the graded
+response form below to check your answer.</font></font></li>
+
+<br><font face="Comic Sans MS"><font color="#990000">P1&nbsp;</font></font><form method="POST" name="Q2"><font face="Comic Sans MS"><font color="#990000"></font><font color="#000099">Enter
+your answer in the box below, then click the button to submit your answer.&nbsp;
+You will get a grade on a 0 (completely wrong) to 100 (perfectly accurate
+answer) scale.</font></font>
+<center><input type="text" ,="" name="InputValue"><input type="button" value="Check My Answer" onclick="evaluateAnswer(this.form,0.5);"></center>
+</form></ul>
+</ul>
+
+<center><font face="Comic Sans MS"><font color="#990000">Your grade is:</font></font><input type="text" ,="" name="Grade"></center>
+
+<ul>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Predict the closed loop
+DC gain, so that you are sure of what the final value should be.</font></font></li>
+
+<br><font face="Comic Sans MS"><font color="#990000">P2&nbsp;</font></font><form method="POST" name="Q2"><font face="Comic Sans MS"><font color="#990000"></font><font color="#000099">Enter
+your answer in the box below, then click the button to submit your answer.</font></font></form></ul>
+</ul>
+
+<center><input type="text" ,="" name="InputValue"><input type="button" value="Check My Answer" onclick="evaluateAnswer(this.form,0.5);">
+<p><font face="Comic Sans MS"><font color="#990000">Your grade is:</font></font><input type="text" ,="" name="Grade"></p></center>
+
+<ul>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">Click the </font><font color="#000099">Start</font><font color="#990000">
+button in the simulator below, get the plot, and determine the closed loop
+time constant and the closed loop DC gain experimentally.&nbsp; Compare
+your measured results to the experimental results.</font></font></li>
+</ul>
+</ul>
+
+<center><!-- URL's used in the movie--><!-- text used in the movie--><!--5 10 15 20 -5 -10 -15 -20 Copyright 2003 E. J. Mastascusa First Order System Simulator Input Time  Constant CONTROLLED  SYSTEM Input DC Gain CONTROLLER Input K Desired Output OUTPUT BEING  PLOTTED -> 25 30 35 40 45 50 2.5 3.0 3.5 4.0 2.0 1.5 1.0 Start Clear --><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="450" height="350"><param name="movie" value="PlotSim1OrdClosedLoop.swf"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><embed src="PlotSim1OrdClosedLoop.swf" quality="high" bgcolor="#FFFFFF" width="450" height="350" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></object></center>
+
+<hr width="100%"><font face="Comic Sans MS"><font color="#990000">Problems</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">P3&nbsp;&nbsp;</font><font color="#000099">&nbsp;
+In this system, you need a closed loop time constant of .5 seconds or less.&nbsp;
+Determine the gain, K, that produces a time constant of 0.5 seconds.&nbsp;
+(And, if you want, you can use the simulator above - at least to check
+your answer.)</font></font>
+</p><center>
+<p><img src="./An Introduction To Control Systems_files/Intro1AProb1.gif" height="77" width="305"></p></center>
+
+<p></p><form method="POST" name="Q2"><font face="Comic Sans MS"><font color="#000099">Enter
+your answer in the box below, then click the button to submit your answer.&nbsp;
+You will get a grade on a 0 (completely wrong) to 100 (perfectly accurate
+answer) scale.</font></font>
+<center><input type="text" ,="" name="InputValue"><input type="button" value="Check My Answer" onclick="evaluateAnswer(this.form,3.0);">
+<p><font face="Comic Sans MS"><font color="#990000">Your grade is:</font></font><input type="text" ,="" name="Grade"></p></center></form>
+
+<hr width="100%"><a name="WhatIf"></a><font face="Comic Sans MS"><font color="#006600"><font size="+1">What
+If?</font></font></font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+So far, you've seen that feedback can have some really good effects when
+the system being controlled is a first order linear system.&nbsp; What
+if the system is different?&nbsp; There are lots of other situations you
+could encounter.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">The system might be second
+order or even a higher order system.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The system could be nonlinear.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000">The system might be computer
+controlled.&nbsp; The system we have been looking at has been a system
+with an analog controller.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In
+all of these cases, something different is going to happen - but's that's
+a subject for another discussion.</font>
+<p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+More complex systems are just that - more complex.&nbsp; That complexity
+means that that design techniques can not be limited to first or second
+order systems.&nbsp; Models of aircraft might involve twentieth order differential
+equations or higher - twenty or more poles if you are looking at things
+using transfer functions.&nbsp; Satellites are orders of magnitude more
+difficult in that sense.</font>
+</p><p><font face="Comic Sans MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The techniques you are going to learn are going to permit you to design
+those complex systems and to predict their performance.&nbsp; They will
+be based on what you know about simpler systems, but they will extend you
+in the process.&nbsp; To get on with it, you can look at a basic type of
+control system, the proportional control system.&nbsp; Click here to get
+to the introductory lessons on proportional control.</font>
+</p><p><font face="Comic Sans MS">&nbsp;You need to learn a number of things
+to work in control system.</font>
+</p><ul>
+<li>
+<font face="Comic Sans MS"><font color="#000066">You need to learn about
+system dynamics - how systems behave in time and how to model them.</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#000066">You need to learn how
+to use models of systems - transfer functions, block diagrams, etc.</font></font></li>
+</ul>
+<font face="Comic Sans MS">&nbsp;There's a long list of what you need,
+but we're going to stop here.</font>
+<br>
+<hr width="100%">
+<br><font face="Comic Sans MS"><font color="#990000"><font size="+1">Problems</font></font></font>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro/IdentP1/IdentificationWhy.htm">Intro
+Problem 1 - Controlling an Airplane - What is involved?</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro/IdentP2/IdentificationProb2.htm">Intro
+Problem 2 - Motor Control</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro1P3.htm">Intro
+Problem 3 - What's in your home heating system?</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro1P4.htm">Prob
+Intro1P04 - Predicting the response of a simple control system.</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro1P5.htm">Prob
+Intro1P05 - Meeting specifications in a simple control system.</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro1P6.htm">Prob
+Intro1P06 - Getting the transfer function of a system.</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Problems/Intro/Intro1P7.htm">Prob
+Intro1P07 - Predicting the response of a control system.</a></font></font></li>
+</ul>
+
+<hr width="100%"><font face="Comic Sans MS"><font color="#990000">Links
+To Related Lessons</font></font>
+<p><font face="Comic Sans MS"><font color="#990000">Other Introductory
+Lessons</font></font>
+</p><ul>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000">General Introduction</font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro2.html">Introduction
+To Proportional Control</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro3.html">Introduction
+To Integral Control</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/Intro/Intro4.html">Introduction
+To Block Diagram Representations</a></font></font></li>
+</ul>
+</ul>
+<font face="Comic Sans MS"><font color="#990000">More Advanced Material
+On Proportional Control</font></font>
+<ul>
+<ul>
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/PID/PID1A.html">Proportional
+Control</a></font></font></li>
+
+<li>
+<font face="Comic Sans MS"><font color="#990000"><a href="http://www.facstaff.bucknell.edu/mastascu/econtrolhtml/PID/PID1B.html">Implementing
+Proportional Control</a></font></font></li>
+</ul>
+</ul>
+
+<hr width="100%"><font face="Comic Sans MS"><font color="#990000"><a href="mailto:mastascu@bucknell.edu">Send
+us your comments on these lessons</a>.</font></font>
+<p>
+</p><hr width="100%">
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+
+
+</body></html>
