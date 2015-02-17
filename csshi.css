@@ -146,31 +146,6 @@
 
 
 
-
-.retroshadow {
-	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  	font-size: 92px;
-  	text-align: center;
-  	text-transform: uppercase;
-  	text-rendering: optimizeLegibility;
-    letter-spacing: .05em;
-  	color: rgba(237,196,72,1);
-  	text-shadow: 0 1px 0 rgba(255,255,255,1) , 0 2px 0 rgba(255,255,255,1) , 0 3px 0 rgba(255,255,255,1) , 0 4px 0 rgba(255,255,255,1) , 0 5px 0 rgba(255,255,255,1) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 -5px 10px rgba(0,0,0,0.247059) , 0 -7px 10px rgba(0,0,0,0.2) , 0 -15px 20px rgba(0,0,0,0.14902) ;
-	  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-	  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-	  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-	  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-    
-  }
-  .retroshadow:hover span{
-    display: none;
-  }
-  .retroshadow:hover:before {
-    content:"So do something about it!"
-  }
-
-
-
 hr.style-two {
     border: 0;
     height: 1px;
@@ -188,58 +163,19 @@ hr.style-three {
 
 
 
-.bubble {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 120px;
-  height: 80px;
-  position: relative;
-  border: none;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  font: normal 100%/normal Arial, Helvetica, sans-serif;
-  color: rgba(0,0,0,1);
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: #1abc9c;
-}
-
-.bubble::before {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 0;
-  height: 0;
-  position: absolute;
-  content: "";
-  top: 26px;
-  right: 100%;
-  border: 13px solid rgba(0,0,0,0);
-  border-right: 26px solid #1abc9c;
-  border-left: 0 solid;
-  font: normal 100%/normal Arial, Helvetica, sans-serif;
-  color: rgba(0,0,0,1);
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  text-shadow: none;
-}
-
-
-
 .enjoy-css2 {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  width: 250px;
-  height: 70px;
+  width: 170px;
+  height: 50px;
   cursor: pointer;
   margin: 0 auto;
-  border: 2px solid #ffa613;
-  -webkit-border-radius: 40px;
-  border-radius: 40px;
-  font: normal 37px/70px "Advent Pro", Helvetica, sans-serif;
-  color: #ffa613;
+  border: 2px solid #c72222;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font: normal 20px/50px "Advent Pro", Helvetica, sans-serif;
+  color: #c72222;
   text-align: center;
   -o-text-overflow: clip;
   text-overflow: clip;
@@ -253,45 +189,16 @@ hr.style-three {
 
 .enjoy-css2:hover {
   color: rgba(255,255,255,1);
-  background: #fd6134;
+  background: #c72222;
 }
 
 .enjoy-css2:active {
   border: 2px solid rgba(33,224,163,1);
-  background: #fd6134;
+  background: #c72222;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
   transition: none;
-}
-
-
-
-.enjoy-css3 {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 106px;
-  cursor: pointer;
-  padding: 5px 18px;
-  border: none;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
-  font: normal normal bold 15px/normal "Battambang", Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  text-transform: uppercase;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  background: rgb(233, 58, 48);
-  -webkit-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
-  -moz-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
-  -o-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
-  transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
-}
-
-.enjoy-css3:hover {
-  background: rgb(229, 17, 17);
 }
 
 
@@ -399,3 +306,35 @@ hr.style-three {
   background-color: #2ecc71;
 }
 
+
+.hvr-overline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-overline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  top: 0;
+  background: #c72222;
+  height: 6px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-overline-from-left:hover:before, .hvr-overline-from-left:focus:before, .hvr-overline-from-left:active:before {
+  right: 0;
+}
