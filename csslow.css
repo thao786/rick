@@ -24,6 +24,9 @@
     font-style: italic;
     display: inline;
 }
+.hihi:hover{
+	color:#c72222 !important;
+}
 a:hover {
     text-decoration: none !important;
     color:#c72222;
@@ -91,9 +94,6 @@ a:hover {
 h1{	
 	font-family: 'Quicksand', sans-serif !important;
 	color: black;
-}
-h1:hover{
-	color: #c72222;
 }
 #demo2 a{
 	color:#9ad554;
