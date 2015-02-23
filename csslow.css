@@ -70,7 +70,14 @@ a:hover {
 }
 .aboutpane{
 	border-top: solid 6px #000000;
-	padding: 20px 30px 0 0;
+	padding: 20px 30px 10px 0;
+	background: url('image/aboutpane.png');
+}
+.about{	
+	background: url('image/about.png');
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	padding-bottom: 20px;
 }
 .aboutpane h3{
 	font-family: 'Quicksand', sans-serif;
