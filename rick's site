@@ -5,26 +5,54 @@ comics:
 
 
 2. scada: oil rig -> encounter rock -> increase power supply to meet demand
+AVL: integrate a 40foot trailer stuffed lithium ion battery, design it to act as a solid state genset to work in parallell with existing either diesel or liquid natural gas genset (lng).
+
+diesel genset is the standard electrical power generation at a remote oil n gas drill site. the problem with diesel genset is: 
+1. environment isse: byproduct  benzene 
+2. blackout n brownout. a drill site will lose power bcuz of steep fluctuation in load VS the reaction/response time of the genset
+3. operate outside of optimal efficiency: when sizing diesel genset u have to provide full maximum load capability. rarely does the genset require full load at peak efficinecy as peak load happens rarely.
+
+advantage of solid state genset:
+1. instantaneous reponse of site load changes has the capability to keep existing genset running at peak efficiency. 
+2. can allow for replacement of diesel. with working parallel
+
+by combining solid state (battery) genset wt fossil fuel u can replace diesel.
+diesel charge battery 
+
+
+
+
+
 
 
 3. scada: control of pharmaceutical assembly line
 without scada system -> cant control temperature, pH leve, pressure -> making tons of garbage
 
+korche xl 800 tablet press
+ohara technology
+
+
+
+
+
 4. saving money wt government incentive program
+if they meet these three basic criteria:
+
+scientific or technological advancement
+scientific or technological uncertainty
+scientific and technological content
+
+sit down wt me to find out if ur qualify
+
+
 5. PLC: Remote Alarming
+racoman.com
 
 
 
 
 
 6. PLC: pick up robot:  retrieve warehouse pick data from their Oracle database. Picks are initiated by scanning printed invoices with bar code scanners connected to the PLC controls. This scanned data is retrieved by our software and formatted into a SQL query for the customer database located in Atlanta, Georgia. Location and quantity data from the returned records is then relayed to the PLC controlled robotic pick system. Confirmation of the successful pick is then relayed back to the database.
-
-Barcode: -->  Order Id:  --> Select Location from Order where Order_ID = 2KG0B18SHO
-
-Location: Section B6, Rack 236
-Quantity: 2
-
-update Order set status=complete where Order_ID = 2KG0B18SHO
 
 
 
@@ -40,3 +68,29 @@ What good is a chemical products production line if you can't control temperatur
 What good is an oven if you can't control the temperature?  (And, does it matter if it's an oven in a kitchen or an oven in a heat-treating department that is used to harden metal parts?)
 
 What good is a pump if you can't control the flow rate it produces?  (And, there are many times when the flow rate must be controlled.)
+
+
+
+
+
+
+
+
+
+Links:
+
+ http://www.ncbi.nlm.nih.gov/pubmed/9695175
+
+ http://flexgenpowersystems.com/wp-content/uploads/2013/04/SSG-White-Paper.pdf
+
+ http://www.maximstrategy.calls.net/en/
+
+ http://ctsassociates.com/sr-ed/?gclid=CIzWpuCP7MMCFROAaQod6YQASQ
+
+
+
+
+
+
+
+
