@@ -50,11 +50,10 @@
 }
 .skdslider .slide-desc > h2 {
     color: #CFDB0C;
-    font-family: 'Oswald';
-    font-size: 25px;
-    margin-bottom: 10px;
+	font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
     margin-top: 10px;
-    text-transform: uppercase;
 }
 
 .skdslider .slide-desc > p {
