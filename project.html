@@ -7,7 +7,7 @@
     <meta name="description" content="">    
     <link href="csshi.css" rel="stylesheet">
     <link href="csslow.css" rel="stylesheet">    
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"><script src="http://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     
     <!--=================================================================================-->
@@ -19,7 +19,7 @@
 
     <link href="assets/css/bootstrapTheme.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery.js"></script>
+    
     <script src="menubar/script.js"></script>
     <link rel="stylesheet" href="menubar/styles.css">
     <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
@@ -61,22 +61,24 @@
 
         <div class="row" style="margin-bottom:20px;">
           <div class="col-sm-4">
-            <a href=""><h1 class="tag-green">Water Treatment</h1></a>
+            <a href=""><h1 class="tag-green">energy supply solution</h1></a>
           </div>
           <div class="col-sm-8">
-            <p class="project-item">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <p class="project-item">oil rig -> encounter rock -> increase power supply to meet demand
+AVL: integrate a 40foot trailer stuffed lithium ion battery, design it to act as a solid state genset to work in parallell with existing either diesel or liquid natural gas genset (lng)</p>
           </div>
         </div>
         <div id="demo">
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <div id="owl-demo" class="owl-carousel">
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
+                <div id="oil-drill" class="owl-carousel">
+                  <div class="item"><img src="oil-drill/diesel.png"> diesel</div>
+                  <div class="item"><img src="oil-drill/ngas.jpg" >natural gas</div>
+                  <div class="item"><img src="oil-drill/drill-mud.jpg">Problem: 80% of the time is drilling through mud so diesel is an overkill.</div>
+                  <div class="item"><img src="oil-drill/gas-genset.jpg" >Goal: Replace diesel gensets with lng genset and battery</div>
+                  <div class="item"><img src="oil-drill/soil.jpg" >Ostacle: 20% of the time drill encounter rocks that exceeds load</div>
+                  <div class="item"><img src="oil-drill/soil.jpg" >Solution: charge the trailer battery while drilling through mud. When encounter rocks calls for battery power.</div>
                 </div>              
               </div>
             </div>
@@ -89,23 +91,27 @@
 
         <div class="row" style="margin-bottom:20px;">
           <div class="col-sm-4">
-            <a href=""><h1 class="tag-green">Shaftless Printing</h1></a>
+            <a href=""><h1 class="tag-green">Automated Warehouse Picking</h1></a>
           </div>
           <div class="col-sm-8">
-            <p class="project-item">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <p class="project-item">Integrating PLC controlled pick up robots with remote databases system.</p>
           </div>
         </div>
         <div id="demo2">
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <div id="owl-demo2" class="owl-carousel">
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                  <div class="item"><img src="image/image.jpg" alt="Owl Image"></div>
-                </div>              
+                <div id="auto-pickup" class="owl-carousel">
+                  <div class="item"><img src="auto-pickup/doctor-prescription.jpg">
+                    doctor prescribe contact lenses</div>
+                  <div class="item"><img src="auto-pickup/invoice.jpg">customer get a receipt of the lenses to be picked up</div>
+                  <div class="item"><img src="auto-pickup/store.jpg">customer comes to shop to pick up lenses</div>
+                  <div class="item"><img src="auto-pickup/barcode-scanner.jpg">invoices are read by bar code scanners connected to the PLC controls</div>
+                  <div class="item"><img src="auto-pickup/server.jpg">System query an Oracle dababase in Atlanta, Georgia about the lenses</div>
+                  <div class="item"><img src="auto-pickup/db-location.png" >Retrieve lenses’ location and quantity in Mississauga warehouse</div>
+                  <div class="item"><img src="auto-pickup/conveyor.jpg" >PLC controlled robotic pick system retrieve lenses and hand to customer</div>
+                  <div class="item"><img src="auto-pickup/done.png">Confirmation of the successful pick is then relayed back to the database</div>
+                </div>               
               </div>
             </div>
           </div>
@@ -169,7 +175,7 @@
 
     <script>
     $(document).ready(function() {
-      $("#owl-demo").owlCarousel({
+      $("#oil-drill").owlCarousel({
         autoPlay: 4000,
         items : 2,
         itemsDesktop : [1199,3],
@@ -179,7 +185,7 @@
     });
 
     $(document).ready(function() {
-      $("#owl-demo2").owlCarousel({
+      $("#auto-pickup").owlCarousel({
         autoPlay: 4000,
         items : 2,
         itemsDesktop : [1199,3],
