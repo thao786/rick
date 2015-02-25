@@ -1,3 +1,9 @@
+body{
+	background-image: url('image/bgr.jpg');
+	/*background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;*/
+}
 .hrspec2{
 	background-image: url('image/hrspec2.jpg');
 	background-attachment: fixed;
@@ -18,9 +24,9 @@
 }
 
 .project-item{
-	font-size: 18px;
+	font-size: 17px;
 	text-align: justify;
-    color:#6b6b6b;
+    color:#1e2b3d;
     font-style: italic;
     display: inline;
 }
@@ -78,6 +84,7 @@ a:hover {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	padding-bottom: 20px;
+	margin-right: 30px;
 }
 .aboutpane h3{
 	font-family: 'Quicksand', sans-serif;
@@ -93,10 +100,24 @@ a:hover {
     font-size: 40px;
 
 }
-.project{
+.expertise{
 	background: #eeeeee;
 	width: 100%;
-	padding:10px 20px 20px 20px;
+	padding:20px 50px 30px 50px;
+}
+.expertise h5{
+	font-size: 60px;
+	margin-left:29%;
+}
+.expertise h2{
+	font-size: 30px;
+	text-align: center;
+	color: #525252;
+}
+.expertise p{
+	text-align: justify;
+	font-style: italic;
+	color: 
 }
 h1{	
 	font-family: 'Quicksand', sans-serif !important;

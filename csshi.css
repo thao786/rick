@@ -262,15 +262,16 @@ hr.style-three {
 .btnnew {
   cursor: pointer;
   margin: 10px;
-  border-radius: 5px;
   text-decoration: none;
   padding: 10px;
+  border-radius: 50%;
   font-size: 22px;
   transition: .3s;
   -webkit-transition: .3s;
   -moz-transition: .3s;
   -o-transition: .3s;
-  display: inline-block;
+  width:95px;
+  height: 95px;
 }
 
 .blue {
@@ -337,4 +338,20 @@ hr.style-three {
 }
 .hvr-overline-from-left:hover:before, .hvr-overline-from-left:focus:before, .hvr-overline-from-left:active:before {
   right: 0;
+}
+
+
+
+
+.style-1:before, .style-1:after {
+position: absolute;
+content: '';
+height: 5px;
+top: 0;
+left: 0;
+right: 0;
+}
+
+.style-1:before {
+background: linear-gradient(90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%, #3498db 32%, #9b59b6 32%, #9b59b6 35%, #34495e 35%, #34495e 55%, #f1c40f 55%, #f1c40f 59%, #e67e22 59%, #e67e22 63%, #e74c3c 63%, #e74c3c 82%, #ecf0f1 82%, #ecf0f1 92%, #95a5a6 92%);
 }
