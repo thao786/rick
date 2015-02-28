@@ -17,7 +17,6 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Overlock:400,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="menubar/script.js"></script>
@@ -56,21 +55,33 @@
 
 
 
-<div class="container">
-    <h1 style="margin-bottom:-5px;margin-top:-30px;" class="myheader"><b>Press and related controls</b></h1>    
+<div class="container widthall">
+    <h1 style="margin-bottom:-5px;margin-top:-30px;" ><b>Press and related controls</b></h1>    
     <h4 class="text-muted">Webtronics Automation provides electrical control systems for presses, auxiliaries and bindery systems.</h4>
     <hr class="style-three">
 
     <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-sm-5 col-sm-offset-1">
+            <div class="fadein">
+                <img src="image/printing-0.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-1.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-2.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-3.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-5.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-6.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-7.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-8.jpg" class="img-responsive img-thumbnail">
+                <img src="image/printing-9.jpg" class="img-responsive img-thumbnail">
+            </div>      
+        </div>
+        <div class="col-sm-4">
             <h1>Design and Build</h1>
-            <div id="cp_widget_656a11f6-7b54-4e34-8971-a89c1dd97e77">...</div> 
             <p>We design and build control panels and consoles for press installations or for retrofit to existing installations. We program PLC controls, user interfaces and motor drives. Webtronics Automation also reprograms existing systems to accommodate changes to press or auxiliaries.</p>
         </div>      
     </div>
 </div>
 
-<br><br><br>
+<div style="height:230px;"></div>
 
 <div class="expertise">
     <div class="row widthall">
@@ -108,17 +119,15 @@
 
 
 
-
-<script type="text/javascript">
-var cpo = []; cpo["_object"] ="cp_widget_656a11f6-7b54-4e34-8971-a89c1dd97e77"; cpo["_fid"] = "AIIAEWsORe50";
-var _cpmp = _cpmp || []; _cpmp.push(cpo);
-(function() { var cp = document.createElement("script"); cp.type = "text/javascript";
-cp.async = true; cp.src = "//www.cincopa.com/media-platform/runtime/libasync.js";
-var c = document.getElementsByTagName("script")[0];
-c.parentNode.insertBefore(cp, c); })(); </script><noscript>Powered by Cincopa <a href='http://www.cincopa.com/video-hosting'>Video Hosting for Business</a> solution.</noscript>
-
-
 <script>
+    $(function(){
+        $('.fadein img:gt(0)').hide();
+        setInterval(function(){
+          $('.fadein :first-child').fadeOut()
+             .next('img').fadeIn()
+             .end().appendTo('.fadein');}, 
+          3000);
+    });
 </script>
 </body>
 </html>

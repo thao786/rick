@@ -17,6 +17,9 @@
 	(GET "/project.html" [] (r/render "project.html"))
 
 
+	(context "/gallery" []
+		(GET "/:file" [file] (io/resource (str "gallery/" file)))
+		(GET "/image/:file" [file] (io/resource (str "gallery/image/" file))))
 	(GET "/image/:file" [file] (io/resource (str "image/" file)))
 	(GET "/menubar/:file" [file] (io/resource (str "menubar/" file)))
 	(context "/slidersrc" []
