@@ -57,11 +57,11 @@
 
 <div class="container">
     <h1 style="margin-bottom:-5px;margin-top:-30px;" class="myheader"><b>Automated Order Picking</b></h1>    
-    <h4 class="text-muted">Our softwares scans invoices directly on the warehouse floor. This triggers a database query that returns co-ordinates to our processor, which then picks and confirms orders atutomatically.</h4>
+    <h4 class="text-muted">Our softwares scans invoices directly on the warehouse floor. This triggers a database query that returns co-ordinates to our processor, which then picks and confirms orders atutomatically.<p>Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.</p></h4>
     <hr class="style-three">
 
 
-    <h1 style="margin-left:20px;">Barcode Scanner Example</h1>
+    <h1 style="margin-left:20px;">The Process Simplified</h1>
     
     <div id="demo2">
       <div class="container">
@@ -101,16 +101,25 @@
 
 <br><br><br>
 
+<<<<<<< HEAD
 <div class="expertise">
     <h1 class="text-center">A Story: Ciba Vision Warehouse Retrofit</h1>
+=======
+
+
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	<h3>The Expansion</h3>
 
+<<<<<<< HEAD
 	In July of 2001 Ciba Vision a leader in the manufacture of contact lenses and related products was faced with a major restructuring of their local distribution operation. The recent acquisition of Wesley Jesson compelled CIBA Vision Canada to implement fundamental changes to their existing facility located in Mississauga, Ontario.
 
 	In order to accommodate a vast increase to their product line, expansion of the warehousing and distribution departments was required. As well, Wesley Jesson was committed to a PeopleSoft enterprise software system. Ciba Vision had previously been running from an AS400 system. This was seen by Ciba Vision as an opportunity to retool their local distribution operation.
 
 	<h3>The Original Automated Operation</h3>
+=======
+
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	The original automated pick operation was based on AS400 software, DOS based PC control systems and second generation PLC technology. Several times during the course of the day order data was requested and then transferred from the AS400 system into a PC residing in the warehouse. This data would then be transferred at the operator's request to several computer workstations connected by serial data links to the central PC. Automated order picking machinery would then be controlled directly from those workstations. This system was developed in the glory days of DOS (the late 1980s) and was considered to be "state of the art" for the time.
 
@@ -118,6 +127,7 @@
 
 	The new PeopleSoft system is based in a centralized location in the USA. Orders within North America are input into this centralized database. Invoices are generated from the data and sent to various distribution centers. Data for Canadian orders is sent to the Mississauga operation. Invoices with bar-coded order numbers are printed in the warehouse location. System operators scan the barcode on the invoice to initiate automatic picking of the product. At completion of the pick a system of manual order confirmation verifies the order content and the results are recorded in the database. The expansion of the pick system necessitated the manufacture and installation of 2 new "A" frames of 350 columns each.
 
+<<<<<<< HEAD
 	Note:	Ciba Vision worked with a local machine shop to develop the "A" frame automated pick machinery. The "A Frame" is an array of columns, stocked with boxes or vials of product.
 
 	At the base of each column is a pneumatic cylinder. This cylinder ejects the product from the column onto the conveyer belt. The cylinder first retracts, to load the product, then extends, ejecting the product out to fall onto the conveyor. Each cylinder is actuated by a solenoid, spring return, air valve.
@@ -125,16 +135,29 @@
 	<h3>The Challenge</h3>
 
 	Webtronics Automation was asked to provide a system that would "bridge the gap" between the existing and the new proposed operation. We would design, build and integrate a new control system to provide automatic picking from the existing and the new "A" frames. This new control system would be required connect to the existing AS400 system for 4 to 6 weeks prior to the final software implementation date of October 1st. After this date the pick control system would transition from the AS400 data source to the new Oracle database.
+=======
+<h4>A Story: Ciba Vision Warehouse Retrofit</h4>
+
+<h4>The Expansion</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	<h3>The New Control System</h3>
 
 	Reliability was the most fundamental requirement. Providing the customer with materials that are well recognized as top quality and are fully supported is essential to meeting this goal.
 
+<<<<<<< HEAD
 	Omron products were chosen for the following reasons:
+=======
+<h4>TThe Original Automated Operation</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	1. Customer acceptance, the original "Vial Picker" had been in operation reliably since1986 was based on the Omron C500 PLC.
 
+<<<<<<< HEAD
 	2. Omron's latest CS1 PLC met all our criteria for reliability and communications flexibility.
+=======
+<h4>The New Operation</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	3. Omron has an extensive family of products to support their PLCs
 	This control system would incorporate two bar code scanners and 4 photoelectric sensors. These devices are required to perform flawlessly and accurately at all times. Omron had recently introduced their new line of hand-held bar code scanners, BCH5000 series. The new scanners have features we considered to be important.
@@ -143,11 +166,19 @@
 
 	A sensor that could detect a box being ejected from the "A" frame was also required. This sensor had to detect a small box anywhere over a forty foot distance reliably and without generating "nuisance" signals. We were quite pleased to discover a new member of Omron's photo-eye line: the E3Z-T86 c/w with a quick connect feature. This device easily met our requirements for range and sensitivity.
 
+<<<<<<< HEAD
 	<h3>Device net</h3>
+=======
+<h4>The Challenge</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	PLC output units dedicated to actuating the picking machinery were located remotely from the main equipment console in smaller control cabinets (more on this later). This minimized the length of wiring runs between valves and PLC. It also allowed a reduction in the size of the main console, an important consideration in the tight space available. It was decided that Device Net communication should be used to link the remote I/O to the main console. The connection between the remotely situated control cabinets and the main console is via a single dedicated cable that is simple to install and maintain.
 
+<<<<<<< HEAD
 	Device Net offers some interesting advantages over conventional proprietary PLC communication links. Primary among those advantages is the hot-swap capability of Device Net. A Device Net module can be removed and replaced without shutting down the entire system. Device Net is also "self-healing". A Device Net node can be shut down without causing mayhem with the remaining operating portions of the network. Both of these capabilities offer significant advantages in reliability for a 24/7 system.
+=======
+<h4>The New Control System</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	<h3>Visual Basic</h3>
 
@@ -163,17 +194,38 @@
 
 	One of the most daunting tasks to be faced in designing the system was wiring the valves actuating the air cylinders, With 700 valves and at least 2 wires per valve we were faced with connecting 1,400 wires correctly. The cost of wire and labour for such a task is significant. In addition we were faced with building electrical panels to house 1400 interposing relays. Relays are commonly used to isolate electrical loads from PLC output modules, With this gigantic number of relays the scale of the control cabinets would be enormous. The cost of the relays and hardware would be prohibitive and the sheer number of mechanical relays would lead to significant reliability issues. An innovative solution was required.
 
+<<<<<<< HEAD
 	Webtronics dealt with the problem by designing proprietary solid-state buffer modules to isolate the PLC outputs from the electrical lload. Our design employs 10 ampere rated transistors current limited to 5 amperes for reliability. The actual electrical load of the valves is a fraction of this value. The printed circuit board designed to house the buffer circuitry is barely bigger that the PLC output module it is designed to interface with. In order to simplify the valve wiring, valve manifolds containing 16 valves with electrical connection through a standard 25 pin "D Sub" connector were selected. This allowed us to design our buffer boards with a matching 25 pin "D Sub" connector. Interconnection between the valve manifolds and the control cabinets was by means of standard, commercially available, computer extension cables. The result was that cabling up the valves took less than one half day of labour and eliminated wiring mistakes. Control cabinets were small enough to fit under the walkways surrounding the "A frames" and there are no mechanical relays to compromise reliability. Perhaps one of the biggest benefits was a saving of thousands of dollars to our customer.
+=======
+<h4>Device net</h4>
+>>>>>>> f561f96b4188d1f4eccf34552b82f01696818b00
 
 	Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.
 
 
+<<<<<<< HEAD
 	<p>This system completes a vital part of their PeopleSoft manufacturing software requirements, providing seamless integration down to the order picking level.</p>
 
 	<p>We developed all the PLC controls for this project and implemented a DeviceNet network to connect devices (700 solenoid valves) within the pick hardware to the control system.</p>
 </div>
+=======
+<h4>Visual Basic</h4>
 
-    
+Microsoft Visual Basic 6.0 was chosen as the basis for the user interface and system data manager. This choice was based on the flexibility of this software development package and it's familiarity to Ciba Vison's Information Technology department. Since only very simple communications with the PLC were required it was decided to write a protocol emulation module in Visual Basic rather than implement an OPC server for the system. Connection to the pick info data table was established via a Microsoft ADO object. Two connection strings were created, one for a local ACCESS database and one for the remote Oracle database.
+
+The local ACCESS database was to receive data from the AS400 system during the transition period before switching to the permanent Oracle source.
+
+Webtronics wrote a conversion utility that received a text file from the AS400 system. The text file was parsed by the utility and the data loaded into the local data table. The main application receives data from the PLC bar code scanners by polling PLC data registers assigned to receive output from the scanners. This data is formatted into a SQL string and the query sent to the database. Records returned are stored in a FlexGrid object for display to the operator.
+
+The pick location and quantity information is recovered from the returned records and sent sequentially to the PLC. As the PLC confirms a successful pick the records are flagged as picked and the database is refreshed with the changes. There are two bar codes scanners and two orders can be processed simultaneously. Console switches allow completely independent operation of the scanners or assign scanner #1 or scanner #2 as "master". Data from all picked records are saved locally into a CSV format history file. A new history file is opened every month. A viewing utility is built into the Visual Basic application. The history files can also be viewed in most popular spreadsheet applications. A Log file is open continuously during the operation of the system and any system alarms or software errors are logged into this file. An "alarms" screen displays the last one hundred events. Icons on the primary screen display the state of PLC communications and an activity window can be opened to monitor database and PLC communications events. Messages to the system operators are also displayed on the main screen. Reliability has been very good. Close attention was given to error and exception handling. Our software design philosophy emphasizes robustness and resilience.
+
+<h4>Valves, Valves, Valves</h4>
+
+One of the most daunting tasks to be faced in designing the system was wiring the valves actuating the air cylinders, With 700 valves and at least 2 wires per valve we were faced with connecting 1,400 wires correctly. The cost of wire and labour for such a task is significant. In addition we were faced with building electrical panels to house 1400 interposing relays. Relays are commonly used to isolate electrical loads from PLC output modules, With this gigantic number of relays the scale of the control cabinets would be enormous. The cost of the relays and hardware would be prohibitive and the sheer number of mechanical relays would lead to significant reliability issues. An innovative solution was required.
+
+Webtronics dealt with the problem by designing proprietary solid-state buffer modules to isolate the PLC outputs from the electrical lload. Our design employs 10 ampere rated transistors current limited to 5 amperes for reliability. The actual electrical load of the valves is a fraction of this value. The printed circuit board designed to house the buffer circuitry is barely bigger that the PLC output module it is designed to interface with. In order to simplify the valve wiring, valve manifolds containing 16 valves with electrical connection through a standard 25 pin "D Sub" connector were selected. This allowed us to design our buffer boards with a matching 25 pin "D Sub" connector. Interconnection between the valve manifolds and the control cabinets was by means of standard, commercially available, computer extension cables. The result was that cabling up the valves took less than one half day of labour and eliminated wiring mistakes. Control cabinets were small enough to fit under the walkways surrounding the "A frames" and there are no mechanical relays to compromise reliability. Perhaps one of the biggest benefits was a saving of thousands of dollars to our customer.
+
+Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.
 
 
 %include {"template/footer.html"}
@@ -181,7 +233,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <script src="owl-carousel/owl.carousel.js"></script>
 <script>
-	$(document).ready(function() {
+  $(document).ready(function() {
       $("#auto-pickup").owlCarousel({
         autoPlay: 4000,
         items : 3,
