@@ -9,6 +9,7 @@
 (defroutes app-routes
 	(GET "/" [] (r/render "index.html"))
 ;	(GET "/" [] (r/render ""))
+	(GET "/index.html" [] (r/render "index.html"))
 	(GET "/about.html" [] (r/render "about.html"))
 	(GET "/press-controls.html" [] (r/render "press-controls.html"))
 	(GET "/production-data-aquisition.html" [] (r/render "production-data-aquisition.html"))
