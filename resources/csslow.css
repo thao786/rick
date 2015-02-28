@@ -1,25 +1,8 @@
 .widthall{
 	max-width: 1250px;
 }
-.hrspec2{
-	background-image: url('image/hrspec2.jpg');
-	background-attachment: fixed;
-	background-position: top left;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 180px;
-	margin:0;
-	z-index: -1000px;
-}
-.hrspec3{
-	background-image: url('image/hrspec3.jpg');
-	background-attachment: fixed;
-	background-position: top left;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 180px;
-	margin:0;
-	z-index: -1000px;
+.myheader{
+	font-family: 'Righteous', cursive !important;
 }
 .hrspec{
 	background-attachment: fixed;
@@ -126,7 +109,6 @@ a:hover {
 	color: 
 }
 h1{	
-	font-family: 'Quicksand', sans-serif !important;
 	color: black;
 }
 #demo2 a{
