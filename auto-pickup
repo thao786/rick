@@ -1,122 +1,16 @@
-%{(require '[rick.lib :as l])}
+Ciba Vision Warehouse Retrofit
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Automated Picking</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">    
-    <link href="csshi.css" rel="stylesheet">
-    <link href="csslow.css" rel="stylesheet">    
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Overlock:400,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="menubar/script.js"></script>
-    <link rel="stylesheet" href="menubar/styles.css">
-    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="owl-carousel/owl.theme.css" rel="stylesheet">    
-    <link href="owl-carousel/prettify.css" rel="stylesheet">
-
-    <style type="text/css">
-    body{ 
-        margin:0; 
-        padding:0;
-    }
-    .hrspec{
-        background-image: url('image/picking.png');
-      }
-    </style>
-</head>
-
-<body>
-  <div class="container">
-    <p class="style-1">
-
-    %include {"template/header.html"}
-
-  </div><!--container-->
-
-<div class="hrspec"></div>
-
-
-
-<div class="container">
-    <h1 style="margin-bottom:-5px;margin-top:-30px;" class="myheader"><b>Automated Order Picking</b></h1>    
-    <h4 class="text-muted">Our softwares scans invoices directly on the warehouse floor. This triggers a database query that returns co-ordinates to our processor, which then picks and confirms orders atutomatically.<p>Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.</p></h4>
-    <hr class="style-three">
-
-
-    <h1 style="margin-left:20px;">The Process Simplified</h1>
-    
-    <div id="demo2">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div id="auto-pickup" class="owl-carousel">
-              <div class="item"><img src="auto-pickup/doctor-prescription.jpg" class="img-responsive img-thumbnail">
-              	<br><p>Doctor prescribe contact lenses</p>
-              </div>
-              <div class="item"><img src="auto-pickup/invoice.jpg" class="img-responsive img-thumbnail">
-              	<br><p>Customer get a receipt of the lenses to be picked up</p>
-              </div>
-              <div class="item"><img src="auto-pickup/store.jpg" class="img-responsive img-thumbnail">
-              	<br><p> Customer comes to shop to pick up lenses</p>
-              </div>
-              <div class="item"><img src="auto-pickup/barcode-scanner.jpg" class="img-responsive img-thumbnail">
-              	<br><p> Invoices are read by bar code scanners connected to the PLC controls</p>
-              </div>
-              <div class="item"><img src="auto-pickup/server.jpg" class="img-responsive img-thumbnail">
-              	<br><p> System query an Oracle dababase in Atlanta, Georgia about the lenses</p>
-              </div>
-              <div class="item"><img src="auto-pickup/db-location.png" class="img-responsive img-thumbnail">
-              	<br><p> Retrieve lenses’ location and quantity in Mississauga warehouse</p>
-              </div>
-              <div class="item"><img src="auto-pickup/conveyor.jpg" class="img-responsive img-thumbnail">
-              	<br><p> PLC controlled robotic pick system retrieve lenses and hand to customer</p>
-              </div>
-              <div class="item"><img src="auto-pickup/done.png" class="img-responsive img-thumbnail">
-              	<br> <p>Confirmation of the successful pick is then relayed back to the database</p>
-              </div>
-            </div>               
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<br><br><br>
-
-
-
-
-
-
-
-
-
-
-<h4>A Story: Ciba Vision Warehouse Retrofit</h4>
-
-<h4>The Expansion</h4>
+The Expansion
 
 In July of 2001 Ciba Vision a leader in the manufacture of contact lenses and related products was faced with a major restructuring of their local distribution operation. The recent acquisition of Wesley Jesson compelled CIBA Vision Canada to implement fundamental changes to their existing facility located in Mississauga, Ontario.
 
 In order to accommodate a vast increase to their product line, expansion of the warehousing and distribution departments was required. As well, Wesley Jesson was committed to a PeopleSoft enterprise software system. Ciba Vision had previously been running from an AS400 system. This was seen by Ciba Vision as an opportunity to retool their local distribution operation.
 
-<h4>TThe Original Automated Operation</h4>
+The Original Automated Operation
 
 The original automated pick operation was based on AS400 software, DOS based PC control systems and second generation PLC technology. Several times during the course of the day order data was requested and then transferred from the AS400 system into a PC residing in the warehouse. This data would then be transferred at the operator's request to several computer workstations connected by serial data links to the central PC. Automated order picking machinery would then be controlled directly from those workstations. This system was developed in the glory days of DOS (the late 1980s) and was considered to be "state of the art" for the time.
 
-<h4>The New Operation</h4>
+The New Operation
 
 The new PeopleSoft system is based in a centralized location in the USA. Orders within North America are input into this centralized database. Invoices are generated from the data and sent to various distribution centers. Data for Canadian orders is sent to the Mississauga operation. Invoices with bar-coded order numbers are printed in the warehouse location. System operators scan the barcode on the invoice to initiate automatic picking of the product. At completion of the pick a system of manual order confirmation verifies the order content and the results are recorded in the database. The expansion of the pick system necessitated the manufacture and installation of 2 new "A" frames of 350 columns each.
 
@@ -124,11 +18,11 @@ Note:	Ciba Vision worked with a local machine shop to develop the "A" frame auto
 
 At the base of each column is a pneumatic cylinder. This cylinder ejects the product from the column onto the conveyer belt. The cylinder first retracts, to load the product, then extends, ejecting the product out to fall onto the conveyor. Each cylinder is actuated by a solenoid, spring return, air valve.
 
-<h4>The Challenge</h4>
+The Challenge
 
 Webtronics Automation was asked to provide a system that would "bridge the gap" between the existing and the new proposed operation. We would design, build and integrate a new control system to provide automatic picking from the existing and the new "A" frames. This new control system would be required connect to the existing AS400 system for 4 to 6 weeks prior to the final software implementation date of October 1st. After this date the pick control system would transition from the AS400 data source to the new Oracle database.
 
-<h4>The New Control System</h4>
+The New Control System
 
 Reliability was the most fundamental requirement. Providing the customer with materials that are well recognized as top quality and are fully supported is essential to meeting this goal.
 
@@ -145,13 +39,13 @@ The scanners are light and compact and they do not use mechanically scanning las
 
 A sensor that could detect a box being ejected from the "A" frame was also required. This sensor had to detect a small box anywhere over a forty foot distance reliably and without generating "nuisance" signals. We were quite pleased to discover a new member of Omron's photo-eye line: the E3Z-T86 c/w with a quick connect feature. This device easily met our requirements for range and sensitivity.
 
-<h4>Device net</h4>
+Device net
 
 PLC output units dedicated to actuating the picking machinery were located remotely from the main equipment console in smaller control cabinets (more on this later). This minimized the length of wiring runs between valves and PLC. It also allowed a reduction in the size of the main console, an important consideration in the tight space available. It was decided that Device Net communication should be used to link the remote I/O to the main console. The connection between the remotely situated control cabinets and the main console is via a single dedicated cable that is simple to install and maintain.
 
 Device Net offers some interesting advantages over conventional proprietary PLC communication links. Primary among those advantages is the hot-swap capability of Device Net. A Device Net module can be removed and replaced without shutting down the entire system. Device Net is also "self-healing". A Device Net node can be shut down without causing mayhem with the remaining operating portions of the network. Both of these capabilities offer significant advantages in reliability for a 24/7 system.
 
-<h4>Visual Basic</h4>
+Visual Basic
 
 Microsoft Visual Basic 6.0 was chosen as the basis for the user interface and system data manager. This choice was based on the flexibility of this software development package and it's familiarity to Ciba Vison's Information Technology department. Since only very simple communications with the PLC were required it was decided to write a protocol emulation module in Visual Basic rather than implement an OPC server for the system. Connection to the pick info data table was established via a Microsoft ADO object. Two connection strings were created, one for a local ACCESS database and one for the remote Oracle database.
 
@@ -161,7 +55,7 @@ Webtronics wrote a conversion utility that received a text file from the AS400 s
 
 The pick location and quantity information is recovered from the returned records and sent sequentially to the PLC. As the PLC confirms a successful pick the records are flagged as picked and the database is refreshed with the changes. There are two bar codes scanners and two orders can be processed simultaneously. Console switches allow completely independent operation of the scanners or assign scanner #1 or scanner #2 as "master". Data from all picked records are saved locally into a CSV format history file. A new history file is opened every month. A viewing utility is built into the Visual Basic application. The history files can also be viewed in most popular spreadsheet applications. A Log file is open continuously during the operation of the system and any system alarms or software errors are logged into this file. An "alarms" screen displays the last one hundred events. Icons on the primary screen display the state of PLC communications and an activity window can be opened to monitor database and PLC communications events. Messages to the system operators are also displayed on the main screen. Reliability has been very good. Close attention was given to error and exception handling. Our software design philosophy emphasizes robustness and resilience.
 
-<h4>Valves, Valves, Valves</h4>
+Valves, Valves, Valves
 
 One of the most daunting tasks to be faced in designing the system was wiring the valves actuating the air cylinders, With 700 valves and at least 2 wires per valve we were faced with connecting 1,400 wires correctly. The cost of wire and labour for such a task is significant. In addition we were faced with building electrical panels to house 1400 interposing relays. Relays are commonly used to isolate electrical loads from PLC output modules, With this gigantic number of relays the scale of the control cabinets would be enormous. The cost of the relays and hardware would be prohibitive and the sheer number of mechanical relays would lead to significant reliability issues. An innovative solution was required.
 
@@ -169,30 +63,4 @@ Webtronics dealt with the problem by designing proprietary solid-state buffer mo
 
 Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.
 
-
-<p>This system completes a vital part of their PeopleSoft manufacturing software requirements, providing seamless integration down to the order picking level.</p>
-
-<p>We developed all the PLC controls for this project and implemented a DeviceNet network to connect devices (700 solenoid valves) within the pick hardware to the control system.</p>
-
-%include {"template/footer.html"}
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-<script src="owl-carousel/owl.carousel.js"></script>
-<script>
-  $(document).ready(function() {
-      $("#auto-pickup").owlCarousel({
-        autoPlay: 4000,
-        items : 3,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
-      });
-    });
-</script>
-<script src="owl-carousel/bootstrap-collapse.js"></script>
-<script src="owl-carousel/bootstrap-transition.js"></script>
-<script src="owl-carousel/bootstrap-tab.js"></script>
-<script src="owl-carousel/prettify.js"></script>
-<script src="owl-carousel/application.js"></script>
-
-</body>
-</html>
+Webtronics works hard to offer customers cost effective solutions. We think "out of the box" for our customer's benefit.
