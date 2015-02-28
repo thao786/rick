@@ -13,7 +13,7 @@
 	(GET "/about.html" [] (r/render "about.html"))
 	(GET "/press-controls.html" [] (r/render "press-controls.html"))
 	(GET "/production-data-aquisition.html" [] (r/render "production-data-aquisition.html"))
-	(GET "/automated-warehouse-picking.html" [] (r/render "automated-warehouse-picking.html"))
+	(GET "/automated-picking.html" [] (r/render "automated-picking.html"))
 	(GET "/project.html" [] (r/render "project.html"))
 
 
@@ -22,6 +22,7 @@
 	(context "/slidersrc" []
 		(GET "/:file" [file] (io/resource (str "slidersrc/" file)))
 		(GET "/image/:file" [file] (io/resource (str "slidersrc/image/" file))))
+	(GET "/auto-pickup/:file" [file] (io/resource (str "auto-pickup/" file)))
 	(GET "/csslow.css" [] (io/resource "csslow.css"))
 	(GET "/csshi.css" [] (io/resource "csshi.css"))
 	(route/not-found "Not Found"))
