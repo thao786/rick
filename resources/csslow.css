@@ -3,6 +3,7 @@
 }
 .myheader{
 	font-family: 'Righteous', cursive !important;
+	font-size: 35px;
 }
 .hrspec{
 	background-attachment: fixed;
@@ -139,4 +140,8 @@ h1{
 .contactpage p{
 	font-family: 'Overlock', cursive;
 	font-size: 18px;
+}
+#auto-pickup p{
+	font-size: 17px;
+	margin: 10px 10px 0 10px;	
 }
