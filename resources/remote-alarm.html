@@ -1,0 +1,105 @@
+%{(require '[rick.lib :as l])}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Remote Alarming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">    
+    <link href="csshi.css" rel="stylesheet">
+    <link href="csslow.css" rel="stylesheet">    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Overlock:400,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="menubar/script.js"></script>
+    <link rel="stylesheet" href="menubar/styles.css">
+
+    <style type="text/css">
+    body{ 
+        margin:0; 
+        padding:0;
+    }
+    .hrspec{
+        background-image: url('image/printing.png');
+    }
+    </style>
+</head>
+
+<body>
+  <div class="container">
+    <p class="style-1">
+
+    %include {"template/header.html"}
+
+  </div><!--container-->
+
+<p>Allied with Raco®</p>
+
+<p>Excerp of note published by our President Rick. The rest can be found at Racoman.com</p>
+<img src="image/water-plant-raco.jpg" >
+
+
+
+<p>Excerp of note published by our President Rick. The rest can be found at Racoman.com</p>
+
+<p>This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models of PLCs Via Ethernet.</p>
+
+<img src="image/raco-system.jpg" >
+
+Both the MicroLogix 1100 and 1400 PLC contain an Ethernet/1P port. This port along with the 1761-NET-ENI allows the Verbatim Gateway to perform its alarm notifications and monitoring functions using the existing wiring to Allen-Bradley MicroLogix 1100 and 1400 PLCs as inputs via Ethernet. This technical note is applicable for all Verbatim Gateway models.</p>
+
+<p>RACO-supplied components:
+- Verbatim Gateway (any model)
+- 51oVAB-1 Cable (NOTE: should modify cable to replace the 9 pin D-SUB with 8-pin mini din)</p>
+
+<p>Allen-Bradley-supplied components:
+- MicroLogix 1100 or 1400 PLC
+- l76l-CBL-PMo2 (R8232 programming cable)
+- 176l-NET-ENI (DFI to Ethernet protocol converter)
+- copy of ENI/ENIW Utility software (available free via www.AB.com)
+- either a crossover Ethernet cable or standard Ethernet cable connected through a Hub/Switch.
+- RSLogix 500 software version 8.10.00</p>
+
+<p>In order to facilitate Ethernet communications, RACO provides a serial cable that connects the Verbatim Gateway to the l761-NET-ENI. This cable has the RJ-45 connector required at the Verbatim Gateway end and the 8-pin mini at the other end that connects to Port 2 (R8232) of the 1761-NET-ENI card.</p>
+
+<p>Once this cable is connected, only Ethernet related hardware is required.</p>
+
+
+
+
+
+
+
+
+%include {"template/footer.html"}
+
+
+
+
+<script type="text/javascript">
+var cpo = []; cpo["_object"] ="cp_widget_656a11f6-7b54-4e34-8971-a89c1dd97e77"; cpo["_fid"] = "AIIAEWsORe50";
+var _cpmp = _cpmp || []; _cpmp.push(cpo);
+(function() { var cp = document.createElement("script"); cp.type = "text/javascript";
+cp.async = true; cp.src = "//www.cincopa.com/media-platform/runtime/libasync.js";
+var c = document.getElementsByTagName("script")[0];
+c.parentNode.insertBefore(cp, c); })(); </script><noscript>Powered by Cincopa <a href='http://www.cincopa.com/video-hosting'>Video Hosting for Business</a> solution.</noscript>
+
+
+<script>
+</script>
+</body>
+</html>
+
+
+
+
+

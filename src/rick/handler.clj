@@ -15,7 +15,8 @@
 	(GET "/production-data-aquisition.html" [] (r/render "production-data-aquisition.html"))
 	(GET "/automated-picking.html" [] (r/render "automated-picking.html"))
 	(GET "/project.html" [] (r/render "project.html"))
-
+	(GET "/remote-alarm.html" [] (r/render "remote-alarm.html"))
+	(GET "/sr-ed.html" [] (r/render "sr-ed.html"))
 
 	(GET "/owl-carousel/:file" [file] (io/resource (str "owl-carousel/" file)))
 	(GET "/image/:file" [file] (io/resource (str "image/" file)))
