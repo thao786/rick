@@ -2,10 +2,19 @@
    font-family: 'Ubuntu', sans-serif;
    src: url(http://fonts.googleapis.com/css?family=Ubuntu);
 }
+@font-face {
+   font-family: 'Playfair Display', serif;
+   src: url(http://fonts.googleapis.com/css?family=Playfair+Display);
+}
+
+
 p,h4{
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 17px;
 	color: #515151;
+}
+h1{
+	font-family: 'Playfair Display', serif !important;
 }
 .widthall{
 	max-width: 1250px;
