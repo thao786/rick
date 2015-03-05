@@ -19,6 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Overlock:400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="menubar/script.js"></script>
@@ -31,6 +32,10 @@
     }
     .hrspec{
         background-image: url('image/alarm.png');
+    }
+    p{        
+        font-family: 'Vollkorn', serif;
+        font-size: 17px;
     }
     </style>
 </head>
@@ -50,48 +55,69 @@
   <div class="container">
     <h1 style="margin-bottom:-5px;margin-top:-30px;" class="myheader"><b>Remote Alarming</b></h1> 
     <h4 class="text-muted">Allied with Raco®<br>
-        Whether by email, text or an old fashioned telephone call, we can implement a fully automated 24/7 alarm call out proceedure.<br><br>
-This service is ideal for unmanned or undermanned processes that are required to operate round-the-clock flawlessly.</h4>
-
-Webtronics works hard to offer customers cost effective solutions. We think "out of the box" for our customer's benefit.<img src="image/scada-screen.jpg" />
+    Whether by email, text or an old fashioned telephone call, we can implement a fully automated 24/7 alarm call out proceedure.</h4>
     <hr class="style-three">
 
     <div class="row">
-        <div class="col-sm-4 col-sm-offset-3">
-            <img src="image/raco-system.jpg" class="img-responsive hvr-grow-shadow">
+        <div class="thumbnail col-sm-5 col-sm-offset-1">      
+            <img src="image/scada-screen.jpg" class="img-responsive  hvr-grow-shadow">
+              <div class="caption">
+                <hr>
+                <p class="text-warning">This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models</p>
+              </div>
         </div>
-        <div class="col-sm-3">
-
-            <p style="margin-top:30px;">Excerp of note published by our President Rick. The rest can be found at <a href="http://www.racoman.com/">Racoman</a></p>
-            <p>This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models of PLCs Via Ethernet.</p>
+        <div class="col-sm-4">
+            <h4>This service is ideal for unmanned or undermanned processes that are required to operate round-the-clock flawlessly.<br><br>
+            Webtronics works hard to offer customers cost effective solutions. We think "out of the box" for our customer's benefit.</h4>
         </div>
     </div>
 
-    <br><br>
+    <div class="row">
+        <div class="thumbnail col-sm-5 col-sm-offset-1">      
+            <img src="image/raco-system.jpg" class="img-responsive  hvr-grow-shadow">
+              <div class="caption">
+                <hr>
+                <p class="text-warning">This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models</p>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <h4>Excerp of note published by our President Rick. The rest can be found at <a href="http://www.racoman.com/">Racoman</a>
+            <br><br>
+            This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models of PLCs Via Ethernet.
+            <br><br>
+            Both the MicroLogix 1100 and 1400 PLC contain an Ethernet/1P port. This port along with the 1761-NET-ENI allows the Verbatim Gateway to perform its alarm notifications and monitoring functions using the existing wiring to Allen-Bradley MicroLogix 1100 and 1400 PLCs as inputs via Ethernet. This technical note is applicable for all Verbatim Gateway models.</h4>
+        </div>
+    </div>
 
     <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <p>Both the MicroLogix 1100 and 1400 PLC contain an Ethernet/1P port. This port along with the 1761-NET-ENI allows the Verbatim Gateway to perform its alarm notifications and monitoring functions using the existing wiring to Allen-Bradley MicroLogix 1100 and 1400 PLCs as inputs via Ethernet. This technical note is applicable for all Verbatim Gateway models.</p>
-            <br>
-            <img src="image/water-plant-raco.jpg" class="img-responsive hvr-grow-shadow" style="float:left;display:inline;margin-right:20px;">
-                <p>RACO-supplied components:<br>
+        <div class="thumbnail col-sm-5 col-sm-offset-1">      
+            <img src="image/water-plant-raco.jpg" class="img-responsive  hvr-grow-shadow">
+              <div class="caption">
+                <hr>
+                <p class="text-warning">This technical note explains how to interface the RACO Verbatim Gateway system with the Allen-Bradley MicroLogix 1100 and 1400 models</p>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <h4>RACO-supplied components:<br>
                 - Verbatim Gateway (any model)<br>
-                - 51oVAB-1 Cable (NOTE: should modify cable to replace the 9 pin D-SUB with 8-pin mini din)</p>
-                <br>
-                <p>Allen-Bradley-supplied components:<br>
+                - 51oVAB-1 Cable (NOTE: should modify cable to replace the 9 pin D-SUB with 8-pin mini din)
+                <br><br>
+                Allen-Bradley-supplied components:<br>
                 - MicroLogix 1100 or 1400 PLC<br>
                 - l76l-CBL-PMo2 (R8232 programming cable)<br>
                 - 176l-NET-ENI (DFI to Ethernet protocol converter)<br>
                 - copy of ENI/ENIW Utility software (available free via www.AB.com)<br>
                 - either a crossover Ethernet cable or standard Ethernet cable connected through a Hub/Switch.<br>
                 - RSLogix 500 software version 8.10.00</p>
-                <br>
-                <p>In order to facilitate Ethernet communications, RACO provides a serial cable that connects the Verbatim Gateway to the l761-NET-ENI. This cable has the RJ-45 connector required at the Verbatim Gateway end and the 8-pin mini at the other end that connects to Port 2 (R8232) of the 1761-NET-ENI card.</p>
-                <br>
-                <p>Once this cable is connected, only Ethernet related hardware is required.</p>
+                <br><br>
+                In order to facilitate Ethernet communications, RACO provides a serial cable that connects the Verbatim Gateway to the l761-NET-ENI. This cable has the RJ-45 connector required at the Verbatim Gateway end and the 8-pin mini at the other end that connects to Port 2 (R8232) of the 1761-NET-ENI card.
+                <br><br>
+                Once this cable is connected, only Ethernet related hardware is required.</h4>
         </div>
     </div>
 </div>
+
+    
     
 
 %include {"template/footer.html"}
