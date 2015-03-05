@@ -78,13 +78,14 @@ a:hover {
 	padding-bottom: 20px;
 	margin-right: 30px;
 }
-.aboutpane h3{
+.aboutpane h4{
 	font-family: 'Quicksand', sans-serif;
 	margin-top:3px;
 	color: #343434;
 	margin-bottom: -5px;
+	font-size: 20px;
 }
-.aboutpane h3:hover{
+.aboutpane h4:hover{
 	color: #c72222;
 }
 .text-heading{
