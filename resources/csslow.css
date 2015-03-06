@@ -87,7 +87,7 @@ a:hover {
 .aboutpane{
 	border-top: solid 6px #000000;
 	padding: 20px 30px 10px 0;
-	background: url('image/aboutpane.png');
+	background: rgba(255, 255, 255, 0.7);
 }
 .about{	
 	background: url('image/about.png');
