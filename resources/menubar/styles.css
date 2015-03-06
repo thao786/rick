@@ -178,3 +178,64 @@
 #cssmenu.small-screen #menu-button.menu-opened:before {
   background: #dff2fa;
 }
+#cssmenu ul ul {
+  border-top: 6px solid #a80329;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+#cssmenu ul ul a {
+  line-height: 43px;
+}
+#cssmenu li ul {
+  background: #e0e0e0;
+  border-left: 2px solid #a80329;
+  border-right: 2px solid #a80329;
+  border-bottom: 2px solid #a80329;
+  display: none;
+  height: auto;
+  filter: alpha(opacity=95);
+  opacity: 0.95;
+  position: absolute;
+  width: 225px;
+  z-index: 200;
+  /*top:1em;
+    /*left:0;*/
+}
+
+
+
+
+#cssmenu ul ul
+{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  padding:0;
+  z-index:10000;
+}
+
+#cssmenu ul ul li
+{
+  float:none;
+  width:200px
+}
+
+#cssmenu ul ul a
+{
+  line-height:120%;
+  padding:10px 15px
+}
+
+#cssmenu ul ul ul
+{
+  top:0;
+  left:100%
+}
+
+#cssmenu ul li:hover > ul
+{
+  display:block
+}
