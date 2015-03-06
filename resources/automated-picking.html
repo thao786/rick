@@ -60,14 +60,14 @@
 
 <div class="container">
     <h1 style="margin-bottom:-5px;margin-top:-30px;" class="myheader"><b>Automated Order Picking</b></h1>    
-    <h4 class="text-muted">Our softwares scans invoices directly on the warehouse floor. This triggers a database query that returns co-ordinates to our processor, which then picks and confirms orders atutomatically.</h4>
+    <h4 class="text-muted">NRG Innovative Solutions is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature.</h4>
     <hr class="style-three">
 </div>
 
     <div class="expertise">
       <h1>The project gallery</h1>
       <div class="container">
-        <p class="text-center">Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.</p>
+        <p class="text-center">Our softwares scans invoices directly on the warehouse floor. This triggers a database query that returns co-ordinates to our processor, which then picks and confirms orders atutomatically.</p>
       </div>
       <div class="container">
           <div id="cp_widget_798bb1f6-77ce-4ab3-8827-1f216876ab78">...</div>
@@ -77,7 +77,7 @@
     <br>
 
 <div class="container">
-    <h1 style="margin-left:20px;" >The Process Simplified</h1>    
+    <h1 style="margin-left:20px;" >The Process Illustration</h1>    
     <div id="demo2">
       <div class="container">
         <div class="row">
@@ -118,6 +118,8 @@
 
 <div class="container">
   <h1 style="margin-left:10px;">A Story: Ciba Vision Warehouse Retrofit</h1>
+We developed all the PLC controls for this project and implemented a DeviceNet network to connect devices (700 solenoid valves) within the pick hardware to the control system.
+
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
@@ -153,7 +155,7 @@
       </div>
       <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
         <div class="panel-body">
-          Webtronics Automation was asked to provide a system that would "bridge the gap" between the existing and the new proposed operation. We would design, build and integrate a new control system to provide automatic picking from the existing and the new "A" frames. This new control system would be required connect to the existing AS400 system for 4 to 6 weeks prior to the final software implementation date of October 1st. After this date the pick control system would transition from the AS400 data source to the new Oracle database.
+          We was asked to provide a system that would "bridge the gap" between the existing and the new proposed operation. We would design, build and integrate a new control system to provide automatic picking from the existing and the new "A" frames. This new control system would be required connect to the existing AS400 system for 4 to 6 weeks prior to the final software implementation date of October 1st. After this date the pick control system would transition from the AS400 data source to the new Oracle database.
         </div>
       </div>
     </div>
@@ -199,7 +201,7 @@
         <div class="panel-body">
           Microsoft Visual Basic 6.0 was chosen as the basis for the user interface and system data manager. This choice was based on the flexibility of this software development package and it's familiarity to Ciba Vison's Information Technology department. Since only very simple communications with the PLC were required it was decided to write a protocol emulation module in Visual Basic rather than implement an OPC server for the system. Connection to the pick info data table was established via a Microsoft ADO object. Two connection strings were created, one for a local ACCESS database and one for the remote Oracle database.<br><br>
           The local ACCESS database was to receive data from the AS400 system during the transition period before switching to the permanent Oracle source.<br><br>
-          Webtronics wrote a conversion utility that received a text file from the AS400 system. The text file was parsed by the utility and the data loaded into the local data table. The main application receives data from the PLC bar code scanners by polling PLC data registers assigned to receive output from the scanners. This data is formatted into a SQL string and the query sent to the database. Records returned are stored in a FlexGrid object for display to the operator.<br><br>
+          We wrote a conversion utility that received a text file from the AS400 system. The text file was parsed by the utility and the data loaded into the local data table. The main application receives data from the PLC bar code scanners by polling PLC data registers assigned to receive output from the scanners. This data is formatted into a SQL string and the query sent to the database. Records returned are stored in a FlexGrid object for display to the operator.<br><br>
           The pick location and quantity information is recovered from the returned records and sent sequentially to the PLC. As the PLC confirms a successful pick the records are flagged as picked and the database is refreshed with the changes. There are two bar codes scanners and two orders can be processed simultaneously. Console switches allow completely independent operation of the scanners or assign scanner #1 or scanner #2 as "master". Data from all picked records are saved locally into a CSV format history file. A new history file is opened every month. A viewing utility is built into the Visual Basic application. The history files can also be viewed in most popular spreadsheet applications. A Log file is open continuously during the operation of the system and any system alarms or software errors are logged into this file. An "alarms" screen displays the last one hundred events. Icons on the primary screen display the state of PLC communications and an activity window can be opened to monitor database and PLC communications events. Messages to the system operators are also displayed on the main screen. Reliability has been very good. Close attention was given to error and exception handling. Our software design philosophy emphasizes robustness and resilience.
         </div>
       </div>
@@ -213,18 +215,22 @@
       <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
         <div class="panel-body">
           One of the most daunting tasks to be faced in designing the system was wiring the valves actuating the air cylinders, With 700 valves and at least 2 wires per valve we were faced with connecting 1,400 wires correctly. The cost of wire and labour for such a task is significant. In addition we were faced with building electrical panels to house 1400 interposing relays. Relays are commonly used to isolate electrical loads from PLC output modules, With this gigantic number of relays the scale of the control cabinets would be enormous. The cost of the relays and hardware would be prohibitive and the sheer number of mechanical relays would lead to significant reliability issues. An innovative solution was required.<br><br>
-          Webtronics dealt with the problem by designing proprietary solid-state buffer modules to isolate the PLC outputs from the electrical lload. Our design employs 10 ampere rated transistors current limited to 5 amperes for reliability. The actual electrical load of the valves is a fraction of this value. The printed circuit board designed to house the buffer circuitry is barely bigger that the PLC output module it is designed to interface with. In order to simplify the valve wiring, valve manifolds containing 16 valves with electrical connection through a standard 25 pin "D Sub" connector were selected. This allowed us to design our buffer boards with a matching 25 pin "D Sub" connector. Interconnection between the valve manifolds and the control cabinets was by means of standard, commercially available, computer extension cables. The result was that cabling up the valves took less than one half day of labour and eliminated wiring mistakes. Control cabinets were small enough to fit under the walkways surrounding the "A frames" and there are no mechanical relays to compromise reliability. Perhaps one of the biggest benefits was a saving of thousands of dollars to our customer.<br><br>
-          Webtronics is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.
-          This system completes a vital part of their PeopleSoft manufacturing software requirements, providing seamless integration down to the order picking level.<br><br>
-          We developed all the PLC controls for this project and implemented a DeviceNet network to connect devices (700 solenoid valves) within the pick hardware to the control system.
+          We dealt with the problem by designing proprietary solid-state buffer modules to isolate the PLC outputs from the electrical lload. Our design employs 10 ampere rated transistors current limited to 5 amperes for reliability. The actual electrical load of the valves is a fraction of this value. The printed circuit board designed to house the buffer circuitry is barely bigger that the PLC output module it is designed to interface with. In order to simplify the valve wiring, valve manifolds containing 16 valves with electrical connection through a standard 25 pin "D Sub" connector were selected. This allowed us to design our buffer boards with a matching 25 pin "D Sub" connector. Interconnection between the valve manifolds and the control cabinets was by means of standard, commercially available, computer extension cables. The result was that cabling up the valves took less than one half day of labour and eliminated wiring mistakes. Control cabinets were small enough to fit under the walkways surrounding the "A frames" and there are no mechanical relays to compromise reliability. Perhaps one of the biggest benefits was a saving of thousands of dollars to our customer.<br><br>
+          This system completes a vital part of their PeopleSoft manufacturing software requirements, providing seamless integration down to the order picking level.
         </div>
       </div>
     </div>
   </div>
+
+
+
+
+
+<p>NRG Innovative Solutions is one of very few Industrial Automation Integrators with the capability to design devices to solve technological problems of this nature. Conventional integrators would be forced to work with relays and hand-wired interconnects and their customers would be forced to accept increased cost and reduced reliability.</p>
+
+<p>We works hard to offer customers cost effective solutions. We think "out of the box" for our customer's benefit.</p>
+
 </div>
-
-<br>
-
 
 
 
