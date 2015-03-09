@@ -1,6 +1,6 @@
 # rick
 
-
+NRG Innovative Solutions Corp
 
 To start a web server for the application, run:
 
@@ -9,6 +9,7 @@ To start a web server for the application, run:
 
 git init
 git remote add origin  https://github.com/thao786/rick.git
+
 
 
 
