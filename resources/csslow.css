@@ -136,13 +136,12 @@ h1{
 }
 .aboutpage h2{
 	font-family: 'Raleway', sans-serif;
-	font-size: 54px;
+	font-size: 44px;
 	font-weight: 800;
 }
 .aboutpage p{	
 	font-family: 'Merriweather', serif;
-	color: #8a8888;
-	font-style: italic;
+	color: #6c6b6b;
 	font-size: 15px;
 
 }
