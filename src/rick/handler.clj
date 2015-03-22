@@ -12,7 +12,7 @@
 	(GET "/index.html" [] (r/render "index.html"))
 	(GET "/about.html" [] (r/render "about.html"))
 	(GET "/press-controls.html" [] (r/render "press-controls.html"))
-	(GET "/production-data-aquisition.html" [] (r/render "production-data-aquisition.html"))
+	(GET "/production-data-acquisition-scada.html" [] (r/render "production-data-acquisition-scada.html"))
 	(GET "/automated-picking.html" [] (r/render "automated-picking.html"))
 	(GET "/project.html" [] (r/render "project.html"))
 	(GET "/remote-alarm.html" [] (r/render "remote-alarm.html"))
